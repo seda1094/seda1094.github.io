@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Coloring</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" href="img/paint-board-and-brush (1).png">
+	
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	<style> 
+	</style>
+</head>
+
+<body>
+	<img id="outlineImage" src="img/black.png" style="display: none;">
+	
+	<div class="start">
+		<div class="outlineImagesDiv">
+			<div>
+				<img src="img/outlineImages/line_04.png"  class="chooseImage">
+			</div>
+			<div>
+				<img src="img/outlineImages/line_05.png"  class="chooseImage">
+			</div>
+			<div>
+				<img src="img/outlineImages/line_02.png"  class="chooseImage">
+			</div>
+			<div>
+				<img src="img/outlineImages/line_01.png"  class="chooseImage">
+			</div>
+		</div>
+		<div class="startButtonDiv">
+			<h1 onclick="hideStartButton()" class="startButton">GET STARTED</h1>
+		</div>
+		
+	</div>
+	<div class="main">
+		<div class="myCanvas">
+			<div id="scroll" class="sandwich" onscroll="scrollFunc()">
+				<canvas id="undo_1" class="undoClass"></canvas>
+				<canvas id="undo_2" class="undoClass"></canvas>
+				<canvas id="undo_3" class="undoClass"></canvas>
+				
+				<canvas id="main"></canvas>
+				<canvas id="draft"></canvas>
+				
+			</div>
+		</div>
+		<div class="layout">
+		</div>
+		<div class="settings">
+			<label>Brush Size</label><br>
+			<input class="range_style" type="range" id="brushSize" min="0" max="70" name="" value="15" class="size">
+			<br>
+			<label>Transparency</label><br>
+			<input class="range_style" type="range" id="brushOpacity" min="0" max="1" name="" step="0.1" value="0.4" class="brushOpacity">
+			<br>
+			<div class="brushes">
+				<div class="brush_item">
+					<img class="option" width="30" src="img/paint-brush (1).svg">
+					<div class="option brushButton s">brush</div>
+				</div>
+				<div class="brush_item">
+					<img class="option" width="30" src="img/eraser (1).svg">
+					<div class="option brushButton s">eraser</div>
+				</div>
+			</div>
+			<div class="brushes">
+				<div class="brush_item">
+					<img class="option" width="30" src="img/big-and-small-dots.svg">
+					<div class="option brushButton s">stars</div>
+				</div>
+				<div class="brush_item">
+					<img class="option" width="30" src="img/blur.svg">
+					<div class="option brushButton s">blur</div>
+				</div>
+			</div>
+			<label>Color</label>
+			<br>
+			<input class="brushColor" type="color" id="color" class="color" value="#8A4BFD">
+			<br>
+			<div class="tools">
+				<img class="tl" src="img/zoom-in.svg" width="30" onclick="zoomin()">
+				<img class="tl" src="img/zoom-out.svg" width="30" onclick="zoomout()">
+				<img class="tl" src="img/layout.svg" width="30" onclick="getImage()">
+				<img class="tl" src="img/undo-arrow-in-a-black-circle.svg" width="30" onclick="undoFunc()">
+
+				<!-- <img class="tl" src="img/undo-arrow-in-a-black-circle.svg" width="30" onclick="undo()">	 -->
+			</div>
+			<button id="savebtn">save image</button>
+			<br>
+			<button style="display: none;" type="button" onclick="set()"> Set</button>
+			<p id="demo"></p>
+			<div class="con"></div>
+			<div id="status"></div>
+			<!-- for caman effects -->
+			<!-- 		<div class="effects">
+				<label for="brightness">Brightness</label><br>
+    			<input id="brightness" name="brightness" type="range" min="0" max="100" value="0"><br>
+			    <label for="hue">Hue</label><br>
+			    <input class="range_style" id="hue" name="hue" type="range" min="0" max="300" value="0"><br>
+			    <label for="contrast">Contrast</label><br>
+			    <input class="range_style" id="contrast" name="contrast" type="range" min="-20" max="20" value="0"><br>
+			    <label for="vibrance">Vibrance</label><br>
+			    <input class="range_style" id="vibrance" name="vibrance" type="range" min="0" max="400" value="0"><br>
+			    <label for="sepia">Sepia</label><br>
+			    <input class="range_style" id="sepia" name="sepia" type="range" min="0" max="100" value="0"><br>
+		</div> -->
+		</div>
+
+	</div>
+	<script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="scripts/jquery.ripples.js" type="text/javascript"></script>
+	<script src="scripts/functions.js" type="text/javascript"></script>
+	<script src="scripts/script.js" type="text/javascript"></script>
+
+</body>
+
+</html>
