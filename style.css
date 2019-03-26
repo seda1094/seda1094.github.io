@@ -161,7 +161,7 @@ color: #745ae0;
 {
 	color: white;
 	font-family: 'Ubuntu', sans-serif;
-	font-size: 40px;
+	font-size: 20px;
 	text-transform: lowercase;
 }
 ::placeholder:hover
@@ -176,7 +176,7 @@ color: #745ae0;
 	cursor: pointer;
 	/*display: inline-block;*/
     z-index: 1;
-    font-size: 40px;
+    font-size: 20px;
     color:black;
 	margin-top: 10%;
 	
