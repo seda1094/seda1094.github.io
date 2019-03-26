@@ -1,3 +1,4 @@
+
 //getting tools settings with events
 $('#color').on('change', function () {
   $('#choosen-color').text($(this).val());
@@ -8,12 +9,12 @@ $('#color').on('change', function () {
 $('#brushSize').on('change', function () {
   curSize = $(this).val();
   // alert(jQuery(this).val());
-}); 
+});
 
 $('#brushOpacity').on('change', function () {
   alpha = $(this).val();
   // alert(jQuery(this).val());
-}); 
+});
 
 $(".option").click(
   function (event) {
@@ -23,18 +24,78 @@ $(".option").click(
   }
 );
 
+document.getElementById('getCode').addEventListener('click', function () {
+  clearStorage();
+  codeGen();
+  hideStartButton();
+  textCodeWRTT();
+});
+let input = document.getElementById('insertCode');
+
+
+input.addEventListener('keyup', function (e) {
+  if (e.keyCode === 13)
+    if (chooseImage()) {
+      codeAllSec();
+      hideStartButton();
+      textCodeWRTT();
+
+    }
+
+});
+
+function codeAllSec() {
+  let code = document.getElementById('insertCode').value;
+        checkCode(code)
+}
+
+
+function checkCode(num) {
+  if (num == localStorage.codeNum) {
+    generateStorageImg()
+    alert("yessss")
+  }
+  else
+  {
+    alert("wrong code");
+    window.location = 'chrome://restart';
+    codeGen();
+  }
+}
+
+function generateStorageImg() {
+  for (let i = 0; i < localStorage.length - 1; i++) {
+    // alert(i)
+
+    var name = "layout_" + generateCount;
+    $(".layout").append("<img width='200' height='100' class = 'myClass' id='" + name + "'></canvas>");
+    $(".layout").append("<h1 class='layoutNumber' onclick='getLayoutId(this)' >" + name + "</h1>");
+
+    // Put the object into storage
+
+    // Retrieve the object from storage
+    var retrievedObject = localStorage.getItem(name);
+
+    // console.log('retrievedObject: ', JSON.parse(retrievedObject));
+
+    document.getElementById(name).src = JSON.parse(retrievedObject)[name];
+    generateCount++;
+  }
+
+}
+
 $('.chooseImage').on('click', function () {
   src = $(this).attr('src');
   // alert(src)
   outlineImage.src = src;
   alpha = 1;
   draft.style.opacity = alpha;                        // CSS alpha for draft                       
-  mctx.globalAlpha = alpha;  
+  mctx.globalAlpha = alpha;
   // ctx.clearRect(0, 0, w, h)  
-  mctx.clearRect(0, 0, w, h)                         
+  mctx.clearRect(0, 0, w, h)
 
   // ctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight); 
-  mctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight); 
+  mctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight);
   alpha = 0.4;
 
   // alert(jQuery(this).val());
@@ -50,8 +111,7 @@ function zoomin() {
   let mainHeight = main.clientHeight;
   // alert(draftWidth);
   // alert(draftHeight);
-  if (zoomPoint >= 2) 
-  {
+  if (zoomPoint >= 2) {
     zoomPoint = 1;
     return false;
   }
@@ -73,8 +133,7 @@ function zoomout() {
   let draftHeight = draft.clientHeight;
   let mainHeight = main.clientHeight;
   // alert(draftWidth);
-  if (zoomPoint <= -1)
-  {
+  if (zoomPoint <= -1) {
     zoomPoint = 0;
     return false;
 
@@ -86,7 +145,7 @@ function zoomout() {
     main.style.width = (mainWidth / scale) + "px";
     main.style.height = (mainHeight / scale) + "px";
   }
-    scale = 1
+  scale = 1
 }
 
 /////////////////////////////////////////////////////////////////
@@ -103,34 +162,102 @@ function getXY(e) {
   // var r = draft.getBoundingClientRect();
   return { x: e.clientX, y: e.clientY }
 }
-
 function getImage() {
-  $(".layout").append("<img width='200' height='100' class = 'myClass' id='layout-" + generateCount + "'></canvas>");
-  $(".layout").append("<h1 class='layoutNumber' onclick='getLayoutId(this)' >layout-" + generateCount + "</h1>");
-
-  var name = "layout-" + generateCount;
+  var name = "layout_" + generateCount;
+  $(".layout").append("<img width='200' height='100' class = 'myClass' id='" + name + "'></canvas>");
+  $(".layout").append("<h1 class='layoutNumber' onclick='getLayoutId(this)' >" + name + "</h1>");
   generateCount++;
   ////new
 
   // let w = layoutCanvas.width;
   // let h = layoutCanvas.height;
 
-                var canvas = document.getElementById(name);
-                document.getElementById(name).src = main.toDataURL();
-                // Canvas2Image.saveAsPNG(canvas);
+  var canvas = document.getElementById(name);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  var testObject = {};
+  testObject[name] = main.toDataURL("image/png");
+
+  // Put the object into storage
+  localStorage.setItem(name, JSON.stringify(testObject));
+
+  // Retrieve the object from storage
+  var retrievedObject = localStorage.getItem(name);
+
+  console.log('retrievedObject: ', JSON.parse(retrievedObject));
+
+
+
+  // Canvas2Image.saveAsPNG(canvas);
+
+  document.getElementById(name).src = JSON.parse(retrievedObject)[name];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
+function removeImg() {
+  localStorage.thisVersionLocalStorage = '';
+}
+
 
 function getLayoutId(obj) {
   // alert(w)
   // alert(h)
   ctx.clearRect(0, 0, w, h);
   clickedLayoutId = $(obj).text();
-  alert(clickedLayoutId);
+
   // var changeCanvas = document.getElementById(clickedLayoutId);
   // var changectx = changeCanvas.getContext("2d");
-  let a = $('#clickedLayoutId').prop('src'); 
-  alert("src"+a)
+  let a = $('#clickedLayoutId').prop('src');
+  alert("src" + a)
   //++mctx.drawImage(document.getElementById('clickedLayoutId'), imageXcoord, imageYcoord, imageWight, imageHeight);                 // copy drawing to main
+  //---------
+
+  changeCanvas = new Image();
+
+  // Retrieve the object from storage
+  var retrievedObject = localStorage.getItem(clickedLayoutId);
+  changeCanvas.src = JSON.parse(retrievedObject)[clickedLayoutId];
+
 
   mctx.clearRect(0, 0, w, h);
   mctx.globalAlpha = 1;
@@ -198,50 +325,54 @@ function blur(prX, prY, ptX, ptY, color, size) {
 // }
 
 function undoFunc() {
-    // alert("undo count"+undoCount)
-    undoCount++;
-    if (undoCount > 2) {
-        alert("noooo")
-        return;
-    }
-    // ctx.clearRect(0, 0, w, h);
-
-    if (undo == 1) {
-        name = "undo_3";
-    }
-    else {
-        let c = (undo - 1)
-        name = "undo_" + c;
-    }
-    // alert(undo)
-    // alert(name)
-    let w = main.width;
-    let h = main.height;
-    var changeCanvas = document.getElementById(name);
-    var changectx = changeCanvas.getContext("2d");
-    mctx.clearRect(0, 0, w, h);
-    mctx.globalAlpha = 1;
-    mctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight);                 // copy drawing to main
-    // // mctx.globalAlpha = alpha; 
-    mctx.drawImage(changeCanvas, 0, 0, w, h);
-    // ctx.clearRect(0, 0, w, h);
-    undo--;
-    if (undo == 0) {
-        undo = 3
-    }
-}
-function hideStartButton() {
-  if(src == "")
-  {
-    alert("choose Imaage");
+  // alert("undo count"+undoCount)
+  undoCount++;
+  if (undoCount > 2) {
+    alert("noooo")
     return;
   }
+  // ctx.clearRect(0, 0, w, h);
+
+  if (undo == 1) {
+    name = "undo_3";
+  }
+  else {
+    let c = (undo - 1)
+    name = "undo_" + c;
+  }
+  // alert(undo)
+  // alert(name)
+  let w = main.width;
+  let h = main.height;
+  var changeCanvas = document.getElementById(name);
+  var changectx = changeCanvas.getContext("2d");
+  mctx.clearRect(0, 0, w, h);
+  mctx.globalAlpha = 1;
+  mctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight);                 // copy drawing to main
+  // // mctx.globalAlpha = alpha; 
+  mctx.drawImage(changeCanvas, 0, 0, w, h);
+  // ctx.clearRect(0, 0, w, h);
+  undo--;
+  if (undo == 0) {
+    undo = 3
+  }
+}
+function hideStartButton() {
   $(".start").delay(100).fadeOut();
   $(".main").css('filter', 'blur(0px)');
   // $(".start").remove();
 
 }
+function chooseImage() {
+  if (src != "") {
+    return true;
+  }
 
+  else {
+    alert("choose Imaage");
+    return;
+  }
+}
 
 //caman js ,,,,don't saving previuos data
 // $('input[type=range]').change(applyFilters);
@@ -274,20 +405,38 @@ $('#savebtn').on('click', function (e) {
 
 
 
-function ckeckImageSizes(iw,ih,cw,ch)
-{
+function ckeckImageSizes(iw, ih, cw, ch) {
   if (iw > cw && ih > ch) {
-    if(iw - cw > ih - ch)
-      {
-        let difSize = iw / cw;
-        imageWight = iw/difSize;
-        imageHeight = ih/difSize;
-      }
-      else if(ih - ch > iw - cw)
-      {
-        let difSize = ih / ch;
-        imageWight = iw/difSize;
-        imageHeight = ih/difSize;
-      }
+    if (iw - cw > ih - ch) {
+      let difSize = iw / cw;
+      imageWight = iw / difSize;
+      imageHeight = ih / difSize;
+    }
+    else if (ih - ch > iw - cw) {
+      let difSize = ih / ch;
+      imageWight = iw / difSize;
+      imageHeight = ih / difSize;
+    }
   }
+}
+
+
+
+function codeGen() {
+  let arr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+
+  for (var i = 0; i < 4; i++) {
+    code += arr[Math.floor(Math.random() * arr.length)];
+  }
+   localStorage.codeNum = code;
+  
+}
+
+function textCodeWRTT() {
+    document.getElementById("codeText").innerHTML = code;
+ 
+}
+
+function clearStorage() {
+  localStorage.clear();
 }

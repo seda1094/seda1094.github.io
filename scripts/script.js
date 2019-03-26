@@ -1,9 +1,13 @@
+
+let generateCount = 1;
+
 let canvasWidth = $(".sandwich").width();
 let canvasHeight = $(".sandwich").height();
 // alert(canvasWidth);
 // alert(canvasHeight);
 let undo = 0;
 let undoCount = 0;
+  let code = "";
 let draft = document.getElementById("draft");
 let main = document.getElementById("main");
 let undo_1 = document.getElementById("undo_1");
@@ -52,7 +56,7 @@ let imageYcoord = (canvasHeight - imageHeight)/2;
 
 let layoutCanvas;
 let layoutctx;
-let generateCount = 1;
+
 let scale = 1;
 let isZoom = false;
 let zoomPoint = 0;
@@ -173,15 +177,15 @@ else {
 
 
 
-// $(document).ready(function(){
-//   "use strict"
+$(document).ready(function(){
+  "use strict"
 
-//   $(".settings").ripples({
-//     dropRadius: 15,
-//     perturbance: 22,
-//   });
-//     $(".layout").ripples({
-//     dropRadius: 15,
-//     perturbance: 22,
-//   });
-// });
+  $(".settings").ripples({
+    dropRadius: 15,
+    perturbance: 22,
+  });
+    $(".layout").ripples({
+    dropRadius: 15,
+    perturbance: 22,
+  });
+});
