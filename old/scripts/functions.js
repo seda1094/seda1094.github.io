@@ -11,52 +11,6 @@ $('#brushSize').on('change', function () {
   // alert(jQuery(this).val());
 });
 
-
-
-
-document.addEventListener("keydown", keyDownTextField, false);
-
-function keyDownTextField(e) {
-var keyCode = e.keyCode;
-  if(keyCode==221) {
-    curSize++;
-    // alert(curSize)
-    $('#brushSize').val(curSize);
-  } 
-  if(keyCode==219) {
-    curSize--;
-    // alert(curSize)
-    $('#brushSize').val(curSize);
-  } 
-
-  if(keyCode==66) {
-    brush = "brush";
-  } 
-  if(keyCode==69) {
-    brush = "eraser";
-  } 
-  if ((event.ctrlKey) && event.which === 90) {
-    undoFunc()
-  }
-  if( keyCode==187 ) {
-        zoomin();
-    }
-    
-    if( keyCode==189 ) {
-      zoomout()
-  }
-}
-
-
-// document.getElementById('body').addEventListener('keyup', function (e) {
-//   if (e.keyCode === 39){
-//     curSize++;
-//     alert(curSize)
-//     $('#brushSize').val(curSize);
-//   }
-// });
-
-
 $('#brushOpacity').on('change', function () {
   alpha = $(this).val();
   // alert(jQuery(this).val());
@@ -69,6 +23,26 @@ $(".option").click(
     // alert($(this).text());
   }
 );
+$("#imagesBlock").click(function(){
+  $("p").hide();
+});
+
+  $('#start').on('click', function () {
+    hidden() 
+    show()
+  // curSize = $(this).val();
+  // alert(jQuery(this).val());
+});
+
+function hidden() {
+  $("#buttonsCont").fadeOut();
+  // $(".start").remove();
+}
+
+function show() {
+  $("#imagesBlock").delay(500).show();
+  // $(".start").remove();
+}
 
 document.getElementById('getCode').addEventListener('click', function () {
   clearStorage();
@@ -80,37 +54,32 @@ let input = document.getElementById('insertCode');
 
 
 input.addEventListener('keyup', function (e) {
-  if (e.keyCode === 13){
-  let code = document.getElementById('insertCode').value;
-    if (chooseImage() && checkCode(code)) {
-      // codeAllSec();
+  if (e.keyCode === 13)
+    if (chooseImage()) {
+      codeAllSec();
       hideStartButton();
       textCodeWRTT();
+
     }
-  }
+
 });
 
-// function codeAllSec() {
-//   let code = document.getElementById('insertCode').value;
-//         checkCode(code)
-// }
+function codeAllSec() {
+  let code = document.getElementById('insertCode').value;
+        checkCode(code)
+}
 
 
 function checkCode(num) {
   if (num == localStorage.codeNum) {
     generateStorageImg()
-    return true;
+    alert("yessss")
   }
   else
   {
-    $(".hiddenAlertsTexts").css("display","block");
-    $( ".hiddenAlertsTexts" ).html( "You entered wrong code" );
-
-    // alert("wrong code");
-    // window.location = 'chrome://restart';
-    // clearStorage()
-    // codeGen();
-    return false;
+    alert("wrong code");
+    window.location = 'chrome://restart';
+    codeGen();
   }
 }
 
@@ -136,9 +105,12 @@ function generateStorageImg() {
 }
 
 $('.chooseImage').on('click', function () {
+  alert("j")
   src = $(this).attr('src');
   // alert(src)
-  outlineImage.src = src;
+  localStorage.sc = src;
+  outlineImage.src = localStorage.sc;
+  alert(src)
   alpha = 1;
   draft.style.opacity = alpha;                        // CSS alpha for draft                       
   mctx.globalAlpha = alpha;
@@ -147,14 +119,9 @@ $('.chooseImage').on('click', function () {
 
   // ctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight); 
   mctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight);
-  // alpha = 0.4;
+  alpha = 0.4;
 
   // alert(jQuery(this).val());
-});
-
-
-$('.chooseImageDiv').on('click', function () {
-  $(this).css('animation','none');
 });
 
 function zoomin() {
@@ -264,6 +231,31 @@ function getImage() {
   // Canvas2Image.saveAsPNG(canvas);
 
   document.getElementById(name).src = JSON.parse(retrievedObject)[name];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 function removeImg() {
   localStorage.thisVersionLocalStorage = '';
@@ -359,19 +351,17 @@ function undoFunc() {
   // alert("undo count"+undoCount)
   undoCount++;
   if (undoCount > 2) {
-    $("#back").attr("src"," img/arr.png");
+    alert("noooo")
     return;
   }
   // ctx.clearRect(0, 0, w, h);
 
   if (undo == 1) {
     name = "undo_3";
-
   }
   else {
     let c = (undo - 1)
     name = "undo_" + c;
-
   }
   // alert(undo)
   // alert(name)
@@ -390,22 +380,19 @@ function undoFunc() {
     undo = 3
   }
 }
-function hideStartButton() {
-  $(".start").delay(100).fadeOut();
-  $(".hiddenAlertsTexts").delay(100).fadeOut();
-  
-  $(".main").css('filter', 'blur(0px)');
-  // $(".start").remove();
+// function hideStartButton() {
+//   $(".start").delay(100).fadeOut();
+//   $(".main").css('filter', 'blur(0px)');
+//   // $(".start").remove();
 
-}
+// }
 function chooseImage() {
   if (src != "") {
     return true;
   }
 
   else {
-    $(".hiddenAlertsTexts").css("display","block");
-    $( ".hiddenAlertsTexts" ).html( "Please, choose image" );
+    alert("choose Imaage");
     return;
   }
 }

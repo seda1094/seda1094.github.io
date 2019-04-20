@@ -63,7 +63,7 @@ let zoomPoint = 0;
 let xScroll = 0;
 let yScroll = 0;
 let isDown = false, prev;
-let alpha = 1;
+let alpha = 0.4;
 let curColor = "#8A4BFD";
 let curSize = 15;
 let brush = "brush";
@@ -83,15 +83,12 @@ mctx.mozImageSmoothingEnabled = false;
 mctx.imageSmoothingEnabled = false;
 
 if (window.innerHeight > window.innerWidth) {
-    $(".hiddenAlertsTexts").css("display","block");
-    $( ".hiddenAlertsTexts" ).html( "Please use Landscape!" );
-
+    alert("Please use Landscape!");
 }
 else {
     draft.onmousedown = function (e) {
         isDown = true;
         prev = getXY(e);
-        $("#back").attr("src"," img/undo-arrow-in-a-black-circle.svg");
         // console.log("down" + prev.x/1.1 + "-" + prev.y/1.1);                             
     };
 
@@ -180,15 +177,15 @@ else {
 
 
 
-$(document).ready(function(){
-  "use strict"
+// $(document).ready(function(){
+//   "use strict"
 
-  $(".settings").ripples({
-    dropRadius: 15,
-    perturbance: 22,
-  });
-    $(".layout").ripples({
-    dropRadius: 15,
-    perturbance: 22,
-  });
-});
+//   $(".settings").ripples({
+//     dropRadius: 15,
+//     perturbance: 22,
+//   });
+//     $(".layout").ripples({
+//     dropRadius: 15,
+//     perturbance: 22,
+//   });
+// });
