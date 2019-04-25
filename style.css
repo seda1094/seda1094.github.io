@@ -187,6 +187,16 @@ color: #745ae0;
     height: 30%
 }
 
+#getCode, #insertCode
+{
+	display: none;
+	transition: opacity 1s ease-out;
+    opacity: 0; 
+	animation-name: none;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+}
+
 .forFlex
 {
 	display: flex;

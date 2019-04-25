@@ -65,6 +65,7 @@ let yScroll = 0;
 let isDown = false, prev;
 let alpha = 1;
 let curColor = "#8A4BFD";
+let whiteColor = "#FFF";
 let curSize = 15;
 let brush = "brush";
 let clickedLayoutId = "none";
@@ -82,6 +83,10 @@ mctx.webkitImageSmoothingEnabled = false;
 mctx.mozImageSmoothingEnabled = false;
 mctx.imageSmoothingEnabled = false;
 
+
+
+
+
 if (window.innerHeight > window.innerWidth) {
     $(".hiddenAlertsTexts").css("display","block");
     $( ".hiddenAlertsTexts" ).html( "Please use Landscape!" );
@@ -97,7 +102,7 @@ else {
 
     draft.onmousemove = function (e) {
 
-            if (brush == "brush") {
+            
                 draft.style.opacity = alpha;                        // CSS alpha for draft
                 // eC.style.opacity = alpha;                        
                 mctx.globalAlpha = alpha;                           // context alpha for main
@@ -106,45 +111,43 @@ else {
                 prY = point.x;
                 prY = point.y;
                 // console.log(prev.x+"px"+prev.y+"py"+point.x+"curX"+point.y+"curY"+curColor)
-                if (isZoom) {
-                    draw(prev.x/scale+(xScroll/scale), prev.y/scale+(yScroll/scale), point.x/scale+(xScroll/scale), point.y/scale+(yScroll/scale), curColor)
+                if (brush == "brush") {
+                    if (isZoom) {
+                        draw(prev.x/scale+(xScroll/scale), prev.y/scale+(yScroll/scale), point.x/scale+(xScroll/scale), point.y/scale+(yScroll/scale), curColor)
+                    }
+                    else
+                    {
+                        draw(prev.x, prev.y, point.x, point.y,curColor)
+                    }
                 }
-                else
-                {
-                    draw(prev.x, prev.y, point.x, point.y,curColor)
-                }
+                else if (brush == "stars") {
+                    if (isZoom) {
+                        stars(prev.x/scale+(xScroll/scale), prev.y/scale+(yScroll/scale), point.x/scale+(xScroll/scale), point.y/scale+(yScroll/scale), curColor,curSize)
+                    }
+                    else
+                    {
+                        stars(prev.x, prev.y, point.x, point.y,curColor,curSize)
+                    }
+                }     
+                else if (brush == "blur") {
+                    if (isZoom) {
+                        blur(prev.x/scale+(xScroll/scale), prev.y/scale+(yScroll/scale), point.x/scale+(xScroll/scale), point.y/scale+(yScroll/scale), curColor,curSize)
+                    }
+                    else
+                    {
+                        blur(prev.x, prev.y, point.x, point.y,curColor,curSize)
+                    }
+                }           
+                else if (brush == "eraser") {
+                    if (isZoom) {
+                        draw(prev.x/scale+(xScroll/scale), prev.y/scale+(yScroll/scale), point.x/scale+(xScroll/scale), point.y/scale+(yScroll/scale), whiteColor)
+                    }
+                    else
+                    {
+                        draw(prev.x, prev.y, point.x, point.y,whiteColor)
+                    }
+                }          
                 prev = point;                                        // update prev. point
-            }
-
-        else if (brush == "stars") {
-            //todo curColor
-            draft.style.opacity = alpha;                        // CSS alpha for draft
-            // eC.style.opacity = alpha;                        
-            mctx.globalAlpha = alpha;                           // context alpha for main
-            if (!isDown) return;
-            let point = getXY(e);
-            stars(prev.x, prev.y, point.x, point.y, curColor, curSize)
-            prev = point;                                        // update prev. point
-        }
-        else if (brush == "blur") {
-            draft.style.opacity = alpha;                        // CSS alpha for draft
-            // eC.style.opacity = alpha;                        
-            mctx.globalAlpha = alpha;                           // context alpha for main
-            if (!isDown) return;
-            let point = getXY(e);
-            blur(prev.x, prev.y, point.x, point.y, curColor, curSize)
-            prev = point;                                        // update prev. point
-        }
-        else if (brush == "eraser") {
-            alpha = 1;
-            draft.style.opacity = alpha;                        // CSS alpha for draft
-            mctx.globalAlpha = alpha;                           // context alpha for main
-            if (!isDown) return;
-            let point = getXY(e);
-            let whiteColor = "#fff";
-            draw(prev.x, prev.y, point.x, point.y, whiteColor)
-            prev = point;                                  // update prev. point
-        }
 
         oldX = e.pageX;
         oldY = e.pageY;
@@ -180,15 +183,15 @@ else {
 
 
 
-$(document).ready(function(){
-  "use strict"
+// $(document).ready(function(){
+//   "use strict"
 
-  $(".settings").ripples({
-    dropRadius: 15,
-    perturbance: 22,
-  });
-    $(".layout").ripples({
-    dropRadius: 15,
-    perturbance: 22,
-  });
-});
+//   $(".settings").ripples({
+//     dropRadius: 15,
+//     perturbance: 22,
+//   });
+//     $(".layout").ripples({
+//     dropRadius: 15,
+//     perturbance: 22,
+//   });
+// });

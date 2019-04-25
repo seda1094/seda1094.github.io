@@ -75,6 +75,12 @@ document.getElementById('getCode').addEventListener('click', function () {
   codeGen();
   hideStartButton();
   textCodeWRTT();
+  ctx.clearRect(0, 0, main.width, main.height);   // clear draft
+  mctx.clearRect(0, 0, main.width, main.height);   // clear draft
+  mctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight);
+  
+  
+
 });
 let input = document.getElementById('insertCode');
 
@@ -154,7 +160,15 @@ $('.chooseImage').on('click', function () {
 
 
 $('.chooseImageDiv').on('click', function () {
-  $(this).css('animation','none');
+      // $(this).css('animation','none');
+      $('#getCode').css('display','block');
+      $('#insertCode').css('display','block');
+      $('#getCode').css('opacity',1);
+      $('#insertCode').css('opacity',1);
+      $('#getCode').css('animation-name','zoomInDown');
+      $('#insertCode').css('animation-name','zoomInDown');
+      zoomInDown
+      
 });
 
 function zoomin() {
@@ -396,7 +410,8 @@ function hideStartButton() {
   
   $(".main").css('filter', 'blur(0px)');
   // $(".start").remove();
-
+    mctx.clearRect(0, 0, w, h);
+      ctx.clearRect(0, 0, w, h);
 }
 function chooseImage() {
   if (src != "") {
