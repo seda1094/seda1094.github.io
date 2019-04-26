@@ -12,7 +12,7 @@
 </head>
 
 <body>
-		<h1 class="hiddenAlertsTexts">asjkdklajskdkalsjdk</h1>
+		<h1 class="hiddenAlertsTexts">Choose Image</h1>
 
 	<img id="outlineImage" src="img/black.png" style="display: none;">
 	
@@ -57,17 +57,25 @@
 				
 			</div>
 		</div>
-		<div class="layout">
-		</div>
+		<div class="menu">
 		<div class="settings">
-			<label>Brush Size</label><br>
-			<input class="range_style" type="range" id="brushSize" min="0" max="70" name="" value="15" step="1" class="size">
+			<div class="setSizeTrans">
+			<div class="brushSizeDiv">
+				<label>Brush Size</label>
+				<label id="sizeText" style="color: rgba(255,255,255,0.4); font-size:14px; margin-left: 25%;">15px</label><br>
+			</div>
+				<input class="range_style" type="range" id="brushSize" min="0" max="70" name="" value="15" step="1" class="size">
 			<br>
-			<label>Transparency</label><br>
-			<input class="range_style" type="range" id="brushOpacity" min="0" max="1" name="" step="0.1" value="1" class="brushOpacity">
+
+			<div class="brushSizeDiv">
+				<label>Transparency</label>
+				<label id="sizeTrans" style="color: rgba(255,255,255,0.4); font-size:14px; margin-left: 14%;">100%</label><br>
+			</div>
+				<input class="range_style" type="range" id="brushOpacity" min="0" max="1" name="" step="0.1" value="1" class="brushOpacity">
 			<br>
+			</div>
 			<div class="brushes">
-				<div class="brush_item">
+				<div id="brush" class="brush_item">
 					<img class="option" width="30" src="img/paint-brush (1).svg">
 					<div class="option brushButton s">brush</div>
 				</div>
@@ -76,12 +84,12 @@
 					<div class="option brushButton s">eraser</div>
 				</div>
 			</div>
-			<div class="brushes">
+			<div id="star" class="brushes">
 				<div class="brush_item">
 					<img class="option" width="30" src="img/big-and-small-dots.svg">
 					<div class="option brushButton s">stars</div>
 				</div>
-				<div class="brush_item">
+				<div id="blur" class="brush_item">
 					<img class="option" width="30" src="img/blur.svg">
 					<div class="option brushButton s">blur</div>
 				</div>
@@ -119,7 +127,9 @@
 			    <input class="range_style" id="sepia" name="sepia" type="range" min="0" max="100" value="0"><br>
 		</div> -->
 		</div>
-
+				<div class="layout">
+				</div>
+	</div>
 	</div>
 	<script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js'></script>

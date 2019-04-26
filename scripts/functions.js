@@ -9,8 +9,18 @@ $('#color').on('change', function () {
 $('#brushSize').on('change', function () {
   curSize = $(this).val();
   // alert(jQuery(this).val());
+  $('#sizeText').text(curSize+"px");
 });
 
+// $( "#brush" ).hover(function() {
+
+//     $('#star').show();
+
+//   }, function() {
+
+//     $('#star').hide();
+
+//   });
 
 
 
@@ -22,11 +32,15 @@ var keyCode = e.keyCode;
     curSize++;
     // alert(curSize)
     $('#brushSize').val(curSize);
+  $('#sizeText').text(curSize+"px");
+
   } 
   if(keyCode==219) {
     curSize--;
     // alert(curSize)
     $('#brushSize').val(curSize);
+  $('#sizeText').text(curSize+"px");
+
   } 
 
   if(keyCode==66) {
@@ -59,6 +73,8 @@ var keyCode = e.keyCode;
 
 $('#brushOpacity').on('change', function () {
   alpha = $(this).val();
+  $('#sizeTrans').text((alpha * 100) +"%");
+
   // alert(jQuery(this).val());
 });
 
@@ -150,7 +166,7 @@ $('.chooseImage').on('click', function () {
   mctx.globalAlpha = alpha;
   // ctx.clearRect(0, 0, w, h)  
   mctx.clearRect(0, 0, w, h)
-
+ // $('#hiddenAlertsTexts').html(" ");
   // ctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight); 
   mctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight);
   // alpha = 0.4;
@@ -167,7 +183,7 @@ $('.chooseImageDiv').on('click', function () {
       $('#insertCode').css('opacity',1);
       $('#getCode').css('animation-name','zoomInDown');
       $('#insertCode').css('animation-name','zoomInDown');
-      zoomInDown
+
       
 });
 
