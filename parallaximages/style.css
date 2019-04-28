@@ -15,31 +15,31 @@ body{
 .l1 {
     left: 30% !important;
     top: 40% !important;
-    animation: zoomOutLeft 3s infinite;
+    animation: zoomOutLeft 11s infinite;
 
   }
   .l2 {
     left: 50% !important;
     top: 270% !important;
-    animation: zoomInDown 2s infinite;
+    animation: zoomInDown 11s infinite;
 
   }
   .l4 {
     left: 40% !important;
     top: 40% !important;
-    animation: fadeIn 2s infinite;
+    animation: fadeIn 11s infinite;
 
   }
   .l3 {
     left: 0% !important;
     top: 120% !important;
-    animation: fadeInUpBig 2s infinite;
+    animation: fadeInUpBig 11s infinite;
 
   }
   .l5 {
     left: 70% !important;
     top: 30% !important;
-    animation: rotateOutWithoutOp 2s infinite;
+    animation: rotateOutWithoutOp 11s infinite;
 
   }
   .l6 {
@@ -49,7 +49,7 @@ body{
   .l7 {
     left: 80% !important;
     top: 430% !important;
-    animation: rotateOut 2s infinite;
+    animation: rotateOut 11s infinite;
 
   }
   .s2 {
@@ -65,9 +65,13 @@ body{
     left: 0% !important;
     top: 380% !important;
   }
+    .s5 {
+    left: 70% !important;
+    top: 280% !important;
+  }
   .stars
   {
-    animation: rotateOut 2s infinite;
+    animation: rotateOut 11s infinite;
 
   }
 @keyframes rotateOut {
