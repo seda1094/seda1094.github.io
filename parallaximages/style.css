@@ -15,31 +15,31 @@ body{
 .l1 {
     left: 30% !important;
     top: 40% !important;
-    animation: zoomOutLeft 11s infinite;
+    animation: zoomOutLeft 11s;
 
   }
   .l2 {
     left: 50% !important;
     top: 270% !important;
-    animation: zoomInDown 11s infinite;
+    animation: zoomInDown 11s;
 
   }
   .l4 {
     left: 40% !important;
     top: 40% !important;
-    animation: fadeIn 11s infinite;
+    animation: fadeIn 11s;
 
   }
   .l3 {
     left: 0% !important;
     top: 120% !important;
-    animation: fadeInUpBig 11s infinite;
+    animation: fadeInUpBig 11s;
 
   }
   .l5 {
     left: 70% !important;
     top: 30% !important;
-    animation: rotateOutWithoutOp 11s infinite;
+    animation: rotateOutWithoutOp 11s;
 
   }
   .l6 {
@@ -49,7 +49,7 @@ body{
   .l7 {
     left: 80% !important;
     top: 430% !important;
-    animation: rotateOut 11s infinite;
+    animation: rotateOut 11s;
 
   }
   .s2 {
@@ -172,11 +172,16 @@ body{
       transform: scale3d(0.475, 0.475, 0.475) translate3d(42px, 0, 0);
     }
   
-    to {
+    80% {
       opacity: 0;
       -webkit-transform: scale(0.1) translate3d(-2000px, 0, 0);
       transform: scale(0.1) translate3d(-2000px, 0, 0);
       -webkit-transform-origin: left center;
       transform-origin: left center;
+    }
+        100% {
+      opacity: 1;
+      -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(42px, 0, 0);
+      transform: scale3d(0.475, 0.475, 0.475) translate3d(42px, 0, 0);
     }
   }
