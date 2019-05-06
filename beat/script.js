@@ -1,7 +1,7 @@
 function sequencer() {
   const kick = new Tone.Player("./sounds/kick.wav").toMaster();
   const snare = new Tone.Player("./sounds/snare.wav").toMaster();
-  const hihat = new Tone.Player("./sounds/hihat.wav").toMaster(); 
+  const hihat = new Tone.Player("./sounds/hihat.wav").toMaster();
   const shaker = new Tone.Player("./sounds/shaker.wav").toMaster();
 
 
@@ -21,21 +21,28 @@ function sequencer() {
     let hihatInputs = document.querySelector(
       `.hihat input:nth-child(${step + 2})`
     );
-        let shakerInputs = document.querySelector(
+    let shakerInputs = document.querySelector(
       `.shaker input:nth-child(${step + 2})`
     );
+
+
     if (kickInputs.checked) {
-      kick.start();
+      Tone.context.resume().then(() => {
+        snare.start();
+      })
     }
     if (snareInputs.checked) {
-      snare.start();
+      Tone.context.resume().then(() => {
+        hihat.start();
+      })
     }
     if (hihatInputs.checked) {
-      hihat.start();
+      Tone.context.resume().then(() => {
+        shaker.start();
+      })
     }
-    if (shakerInputs.checked) {
-      shaker.start();
-    }
+
+
     index++;
   }
 }
