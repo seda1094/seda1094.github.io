@@ -24,15 +24,33 @@ function sequencer() {
     let shakerInputs = document.querySelector(
       `.shaker input:nth-child(${step + 2})`
     );
-// let kick = $( `.kick input:nth-child(${step + 2})` );
-// kick.css("background","rgba(0,0,0,0.1)");
-// let snare = $( `.snare input:nth-child(${step + 2})` );
-// snare.css("background","rgba(0,0,0,0.1)");
-// let hihat = $( `.hihat input:nth-child(${step + 2})` );
-// hihat.css("background","rgba(0,0,0,0.1)");
-// let shaker = $( `.shaker input:nth-child(${step + 2})` );
-// shaker.css("background","rgba(0,0,0,0.1)");
-// shakerInputs.css("background","black")
+$('input').css({
+   'width' : '10em',
+   'height' : '10em'
+});
+
+
+let kickS = $( `.kick input:nth-child(${step + 2})` );
+kickS.css({
+   'width' : '11em',
+   'height' : '11em'
+});
+let snareS = $( `.snare input:nth-child(${step + 2})` );
+snareS.css({
+   'width' : '11em',
+   'height' : '11em'
+});
+let hihatS = $( `.hihat input:nth-child(${step + 2})` );
+hihatS.css({
+   'width' : '11em',
+   'height' : '11em'
+});
+let shakerS = $( `.shaker input:nth-child(${step + 2})` );
+shakerS.css({
+   'width' : '11em',
+   'height' : '11em'
+});
+
 
     if (kickInputs.checked) {
       Tone.context.resume().then(() => {
