@@ -2,9 +2,9 @@ html,body,main
 {
 	width: 100vw;
 	height: 100vh;
-	position: fixed;
-	top: 0;
-	left: 0;
+	/*position: fixed;*/
+	/*top: 0;
+	left: 0;*/
 	margin: 0;
 	font-family: 'Ubuntu', sans-serif;
 	color: #ffffff;
@@ -261,7 +261,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 
 	padding: 1% 4%;
 	border-radius: 50px;
-	border:1px solid #132e3a;
+	border:3px solid rgb(88,145,173);
 	text-decoration: none;
 	box-shadow: 10px 10px 50px rgb(100,100,100);
 

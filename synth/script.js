@@ -17,7 +17,7 @@ line.css({
 });
 let freqArr = [261.62,293.66,311.12,329.62,349.22,369.99,391.99,440,466.16,493.88];
 
-$( "hr" ).mouseenter(function() {
+$( "hr" ).mouseover(function() {
        Tone.context.resume().then(() => {
         //play a middle 'C' for the duration of an 8th note
 synth.triggerAttackRelease(freqArr[Math.floor(Math.random()*freqArr.length)], '64n');
