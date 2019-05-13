@@ -1,114 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        body, .inst {
-            margin: 0;
-            background: black;
-            width: 100vw;
-            height: 100vh;
-            /*position: fixed;*/
-            /*top: 0;
-            left: 0;*/
-
-        }
-
-        .ly_2 {
-            width: 100%;
-            height: 100%;
-        }
-
-        .inst {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        hr {
-            height: 20px;
-            /* margin-top: 20px; */
-            background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-            background-size: 400% 400%;
-            -webkit-animation: Gradient 15s ease infinite; 
-            -moz-animation: Gradient 15s ease infinite; 
-            animation: Gradient 15s ease infinite;
-            border: 1px solid;
-            border: 0;
-            margin: 1px;
-
-        }
-
-        hr:hover {
-
-            background: black;
-            opacity: .2;
-        }
-
-        @-webkit-keyframes Gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        @-moz-keyframes Gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        @keyframes Gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-    </style>
+	<title>Coloring</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" href="img/paint-board-and-brush (1).png">
+	
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	<style> 
+	</style>
 </head>
 
 <body>
-    <div class="ly_2">
-        <!-- <div id="particles-js"></div> -->
+		<h1 class="hiddenAlertsTexts">Choose Image</h1>
 
-    </div>
+	<img id="outlineImage" src="img/black.png" style="display: none;">
+	
+	<div class="start">
+		<div class="outlineImagesDiv">
+			<div class="chooseImageDiv u">
+				<img src="img/outlineImages/line_04.png"  class="chooseImage">
+			</div>
+			<div class="chooseImageDiv u">
+				<img src="img/outlineImages/line_05.png"  class="chooseImage">
+			</div>
+			<div class="chooseImageDiv u">
+				<img src="img/outlineImages/line_02.png"  class="chooseImage">
+			</div>
+			<div class="chooseImageDiv u">
+				<img src="img/outlineImages/line_01.png"  class="chooseImage">
+			</div>
+		</div>
 
-    <div class="inst">
-    </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.3.9/Tone.min.js"></script>
-    <script src="particles.js"></script>
-    <script src="app.js"></script>
-    <script src="script.js"></script>
+		<div class="startButtonDiv">
+			<!--<h1 onclick="hideStartButton()" class="startButton">GET STARTED</h1>-->
+			<div class="forFlex">
+				<h1 id="getCode" class="startButton">GET START</h1>
+				<input id="insertCode" type="text" placeholder="INSERT YOUR CODE" class="startButton inputCode">
+			</div>
+			
+		</div>
+
+			
+
+	</div>
+
+	<div class="main">
+		<div class="myCanvas">
+			<div id="scroll" class="sandwich" onscroll="scrollFunc()">
+				<canvas id="undo_1" class="undoClass"></canvas>
+				<canvas id="undo_2" class="undoClass"></canvas>
+				<canvas id="undo_3" class="undoClass"></canvas>
+				
+				<canvas id="main"></canvas>
+				<canvas id="draft"></canvas>
+				
+			</div>
+		</div>
+		<div class="menu">
+		<div class="settings">
+			<div class="setSizeTrans">
+			<div class="brushSizeDiv">
+				<label>Brush Size</label>
+				<label id="sizeText" style="color: rgba(255,255,255,0.4); font-size:14px; margin-left: 25%;">15px</label><br>
+			</div>
+				<input class="range_style" type="range" id="brushSize" min="0" max="70" name="" value="15" step="1" class="size">
+			<br>
+
+			<div class="brushSizeDiv">
+				<label>Transparency</label>
+				<label id="sizeTrans" style="color: rgba(255,255,255,0.4); font-size:14px; margin-left: 14%;">100%</label><br>
+			</div>
+				<input class="range_style" type="range" id="brushOpacity" min="0" max="1" name="" step="0.1" value="1" class="brushOpacity">
+			<br>
+			</div>
+			<div class="brushes">
+				<div id="brush" class="brush_item">
+					<img class="option" width="30" src="img/paint-brush (1).svg">
+					<div class="option brushButton s">brush</div>
+				</div>
+				<div class="brush_item">
+					<img class="option" width="30" src="img/eraser (1).svg">
+					<div class="option brushButton s">eraser</div>
+				</div>
+			</div>
+			<div id="star" class="brushes">
+				<div class="brush_item">
+					<img class="option" width="30" src="img/big-and-small-dots.svg">
+					<div class="option brushButton s">stars</div>
+				</div>
+				<div id="blur" class="brush_item">
+					<img class="option" width="30" src="img/blur.svg">
+					<div class="option brushButton s">blur</div>
+				</div>
+			</div>
+			<label>Color</label>
+			<br>
+			<input class="brushColor" type="color" id="color" class="color" value="#8A4BFD">
+			<br>
+			<div class="tools">
+				<img class="tl" src="img/zoom-in.svg" width="30" onclick="zoomin()">
+				<img class="tl" src="img/zoom-out.svg" width="30" onclick="zoomout()">
+				<img class="tl" src="img/layout.svg" width="30" onclick="getImage()">
+				<img class="tl" id="back" src="img/undo-arrow-in-a-black-circle.svg" width="30" onclick="undoFunc()">
+
+				<!-- <img class="tl" src="img/undo-arrow-in-a-black-circle.svg" width="30" onclick="undo()">	 -->
+			</div>
+			<button id="savebtn">save image</button>
+			<h1 id="codeText"></h1>
+			<br>
+
+			<p id="demo"></p>
+			<div class="con"></div>
+			<div id="status"></div>
+			<!-- for caman effects -->
+			<!-- 		<div class="effects">
+				<label for="brightness">Brightness</label><br>
+    			<input id="brightness" name="brightness" type="range" min="0" max="100" value="0"><br>
+			    <label for="hue">Hue</label><br>
+			    <input class="range_style" id="hue" name="hue" type="range" min="0" max="300" value="0"><br>
+			    <label for="contrast">Contrast</label><br>
+			    <input class="range_style" id="contrast" name="contrast" type="range" min="-20" max="20" value="0"><br>
+			    <label for="vibrance">Vibrance</label><br>
+			    <input class="range_style" id="vibrance" name="vibrance" type="range" min="0" max="400" value="0"><br>
+			    <label for="sepia">Sepia</label><br>
+			    <input class="range_style" id="sepia" name="sepia" type="range" min="0" max="100" value="0"><br>
+		</div> -->
+		</div>
+				<div class="layout">
+				</div>
+	</div>
+	</div>
+	<script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="scripts/jquery.ripples.js" type="text/javascript"></script>
+	<script src="scripts/functions.js" type="text/javascript"></script>
+	<script src="scripts/script.js" type="text/javascript"></script>
+
 </body>
 
 </html>
