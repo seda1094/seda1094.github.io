@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Виселица!</title>
+    <style>
+        #letters div {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background: orange;
+            font-size: 50px;
+            text-align: center;
+            margin: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Виселица!</h1>
+    <h1 id="word"></h1>
+    <div id="letters"></div>
+    <div id="gameStatus"></div>
+    <script>
+        var tryCount = 8;
+        var words = [
+            "программа",
+            "макгро",
+            "прекрасный",
+            "оладушек"
+        ];
+        var letters = ["а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я"];
+        for (let index = 0; index < letters.length; index++) {
+            var childDiv = document.createElement("div");
+            var text = document.createTextNode(letters[index]);
+            childDiv.appendChild(text);
+            document.getElementById("letters").appendChild(childDiv).setAttribute("onclick", "letterChoice(this)");
+
+        }
+        var word = words[Math.floor(Math.random() * words.length)];
+        var answerArray = [];
+        for (var i = 0; i < word.length; i++) {
+            answerArray[i] = "_";
+        }
+        var remainingLetters = word.length;
+
+        document.getElementById("word").innerHTML = answerArray.join(" ");
+
+
+
+        function letterChoice(obj) {
+            tryCount--
+
+             if (remainingLetters >= 0 || tryCount >= 0) {
+                var guess = obj.textContent;
+                for (var j = 0; j < word.length; j++) {
+                    if (word[j] === guess) {
+                        answerArray[j] = guess;
+                        document.getElementById("word").innerHTML = answerArray.join(" ");
+                        remainingLetters--;
+
+                    }
+                }
+                if(remainingLetters <= 0 && tryCount >= 0)
+                    {
+                        document.getElementById("gameStatus").innerHTML = "You Win";
+                    }
+            }
+            else
+            {
+                document.getElementById("gameStatus").innerHTML = "You Looser//ete chisht em grel aprem es";
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

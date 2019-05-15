@@ -3,8 +3,13 @@
 $('#color').on('change', function () {
   $('#choosen-color').text($(this).val());
   curColor = $(this).val();
+  $('.cc').css("fill",curColor)
   // alert(jQuery(this).val());
 });
+
+function changeColor() {
+  document.getElementById("color").click(); 
+}
 
 $('#brushSize').on('change', function () {
   curSize = $(this).val();
@@ -78,13 +83,19 @@ $('#brushOpacity').on('change', function () {
   // alert(jQuery(this).val());
 });
 
+function changeColor() {
+  document.getElementById("color").click(); 
+} 
+
 $(".option").click(
   function (event) {
-    $(this).addClass("active").siblings().removeClass("active");
-    brush = $(this).text();
-    // alert($(this).text());
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+        brush = $(this).data("b")
   }
 );
+
+
 
 document.getElementById('getCode').addEventListener('click', function () {
   clearStorage();
@@ -93,10 +104,13 @@ document.getElementById('getCode').addEventListener('click', function () {
   textCodeWRTT();
   ctx.clearRect(0, 0, main.width, main.height);   // clear draft
   mctx.clearRect(0, 0, main.width, main.height);   // clear draft
+  ctx.rect(0, 0, main.width, main.height);
+  mctx.rect(0, 0, main.width, main.height);
+  ctx.fillStyle = "white";
+  mctx.fillStyle = "white";
+  ctx.fill();
+  mctx.fill();
   mctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight);
-  
-  
-
 });
 let input = document.getElementById('insertCode');
 
@@ -462,13 +476,17 @@ function chooseImage() {
 
 
 
-//Saving image
+// Saving image
 
 $('#savebtn').on('click', function (e) {
   Caman('#main', function () {
     this.save('png');
   });
 });
+
+         
+
+
 
 
 

@@ -5,11 +5,11 @@ html,body,main
 	position: fixed;
 	top: 0;
 	left: 0;
-	/*margin: 0;
+	margin: 0;
 	font-family: 'Ubuntu', sans-serif;
 	color: #ffffff;
 	text-transform: lowercase;
-	/*background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);*/
+	background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 	background-color: #132e3a;
 }
 .main
@@ -25,7 +25,7 @@ html,body,main
 	width: 85%;
 	height: 100%;
 	overflow: auto;
-	/*display: flex;*/
+	/*display: flex;
 	/*background-color: #364156;*/
 	background: rgba(255,255,255,1);
 	background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(251,246,254,1) 50%, rgba(255,255,255,1) 100%);
@@ -299,7 +299,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 	cursor: pointer;
 
 }
-.layoutNumber, #savebtn
+.layoutNumber
 {
 	color: #FFFFFF;
 	font-size: 18px;
@@ -315,15 +315,43 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 
 .brushes
 {
-	display: flex;
-	height: 20%;
+	height: 5%;
 	width: 90%;
+	margin: 2% 0;
 }
-.brush_item
+.brushes .option
 {
-	margin-right: 15%;
-}
+	margin: 5%;
+	display: inline-block;
 
+}
+.active g path
+{
+	fill: #94E7EF;
+}
+.cc
+{
+	fill: #8A4BFD;
+}
+@media screen and (min-width: 1777px) {
+.brushes .option
+{
+		margin: 4%;
+	display: inline-block;
+}
+}
+@media screen and (max-width: 1777px) {
+.brushes .option
+{
+	margin: 3%;
+}
+}
+@media screen and (max-width: 1400px) {
+.brushes .option
+{
+	display: block;
+}
+}
 .range_style {
   margin-top: 29px;
   margin-bottom: 29px;
@@ -381,13 +409,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 }
 .brushColor
 {
-	width: 90%;
-	margin-top: 15px;
+	display: inline-block;
+	width: 30%;
+	margin-left: 2%;
 	border: none;
     border-color: transparent;
-    border-radius: 8px;
+    /*border-radius: 8px;*/
     background-color: rgb(150,232,239);
     cursor: pointer;
+	
 }
 .brushColor:focus {
 
@@ -404,9 +434,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 	width: 80%;
 	margin-top: 20px;
 }
-.option{
-	margin-top: 17%; 
-}
+
 .tl
 {
 	margin-left: 6%;
