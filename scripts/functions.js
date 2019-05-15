@@ -111,6 +111,8 @@ document.getElementById('getCode').addEventListener('click', function () {
   ctx.fill();
   mctx.fill();
   mctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight);
+  ctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight);
+  
 });
 let input = document.getElementById('insertCode');
 
@@ -123,7 +125,7 @@ input.addEventListener('keyup', function (e) {
       hideStartButton();
       textCodeWRTT();
     }
-  }
+  } 
 });
 
 // function codeAllSec() {
