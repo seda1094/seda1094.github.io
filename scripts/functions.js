@@ -157,8 +157,8 @@ function generateStorageImg() {
     // alert(i)
 
     var name = "layout_" + generateCount;
-    $(".layout").append("<img width='200' height='100' class = 'myClass' id='" + name + "'></canvas>");
-    $(".layout").append("<h1 class='layoutNumber' onclick='getLayoutId(this)' >" + name + "</h1>");
+    $(".layout").append("<img width='200' onclick='getLayoutId(this)' height='100' class = 'myClass' id='" + name + "'></canvas>");
+    // $(".layout").append("<h1 class='layoutNumber' onclick='getLayoutId(this)' >" + name + "</h1>");
 
     // Put the object into storage
 
@@ -206,7 +206,7 @@ $('.chooseImageDiv').on('click', function () {
 function zoomin() {
   scale = 2.1
   isZoom = true;
-  zoomPoint++;
+  zoomPoint+=0.2;
   let draftWidth = draft.clientWidth;
   let mainWidth = main.clientWidth;
   let draftHeight = draft.clientHeight;
@@ -229,7 +229,7 @@ function zoomin() {
 function zoomout() {
 
   isZoom = false
-  zoomPoint--;
+  zoomPoint-=0.2;
   let draftWidth = draft.clientWidth;
   let mainWidth = main.clientWidth;
   let draftHeight = draft.clientHeight;
@@ -264,10 +264,12 @@ function getXY(e) {
   // var r = draft.getBoundingClientRect();
   return { x: e.clientX, y: e.clientY }
 }
+
+
 function getImage() {
   var name = "layout_" + generateCount;
-  $(".layout").append("<img width='200' height='100' class = 'myClass' id='" + name + "'></canvas>");
-  $(".layout").append("<h1 class='layoutNumber' onclick='getLayoutId(this)' >" + name + "</h1>");
+  $(".layout").append("<img width='200' onclick='getLayoutId(this)' height='100' class = 'myClass' id='" + name + "'></canvas>");
+  // $(".layout").append("<h1 class='layoutNumber' onclick='getLayoutId(this)' >" + name + "</h1>");
   generateCount++;
   ////new
 
@@ -275,24 +277,6 @@ function getImage() {
   // let h = layoutCanvas.height;
 
   var canvas = document.getElementById(name);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   var testObject = {};
   testObject[name] = main.toDataURL("image/png");
@@ -320,8 +304,8 @@ function getLayoutId(obj) {
   // alert(w)
   // alert(h)
   ctx.clearRect(0, 0, w, h);
-  clickedLayoutId = $(obj).text();
-
+  clickedLayoutId = $(obj).id();
+  alert(clickedLayoutId)
   // var changeCanvas = document.getElementById(clickedLayoutId);
   // var changectx = changeCanvas.getContext("2d");
   let a = $('#clickedLayoutId').prop('src');
@@ -404,14 +388,14 @@ function blur(prX, prY, ptX, ptY, color, size) {
 function undoFunc() {
   // alert("undo count"+undoCount)
   undoCount++;
-  if (undoCount > 2) {
+  if (undoCount > 4) {
     $("#back").attr("src"," img/arr.png");
     return;
   }
   // ctx.clearRect(0, 0, w, h);
 
   if (undo == 1) {
-    name = "undo_3";
+    name = "undo_5";
 
   }
   else {
@@ -433,7 +417,7 @@ function undoFunc() {
   // ctx.clearRect(0, 0, w, h);
   undo--;
   if (undo == 0) {
-    undo = 3
+    undo = 5
   }
 }
 function hideStartButton() {
@@ -475,9 +459,6 @@ function chooseImage() {
 // }
 
 
-
-
-
 // Saving image
 
 $('#savebtn').on('click', function (e) {
@@ -485,11 +466,6 @@ $('#savebtn').on('click', function (e) {
     this.save('png');
   });
 });
-
-         
-
-
-
 
 
 function ckeckImageSizes(iw, ih, cw, ch) {

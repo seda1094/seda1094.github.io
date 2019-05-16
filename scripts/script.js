@@ -13,6 +13,9 @@ let main = document.getElementById("main");
 let undo_1 = document.getElementById("undo_1");
 let undo_2 = document.getElementById("undo_2");
 let undo_3 = document.getElementById("undo_3");
+let undo_4 = document.getElementById("undo_4");
+let undo_5 = document.getElementById("undo_5");
+
 draft.setAttribute('width', canvasWidth);
 draft.setAttribute('height', canvasHeight);
 main.setAttribute('width', canvasWidth);
@@ -167,7 +170,7 @@ else {
         ctx.clearRect(0, 0, main.width, main.height);   // clear draft
 
         undo++
-        if (undo == 4) {
+        if (undo == 6) {
             undo = 1
         }
         var name = "undo_" + undo;

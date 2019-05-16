@@ -301,6 +301,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 }
 .layoutNumber
 {
+	display: none;
 	color: #FFFFFF;
 	font-size: 18px;
 	font-family: 'Ubuntu', sans-serif;
