@@ -22,7 +22,7 @@ html,body,main
 .myCanvas
 {
 	cursor: pointer;
-	width: 82%;
+	width: 83%;
 	height: 100%;
 	overflow: auto;
 	/*display: flex;
@@ -282,7 +282,7 @@ background: #132e3a;
 	/*overflow-x: hidden;*/
 	box-sizing: border-box;
 	overflow: auto;
-	width: 18%;
+	width: 17%;
 	height: 100%;
 	/*background-color: #011638;*/
 	padding: 3% 1% 1% 1.5%;
