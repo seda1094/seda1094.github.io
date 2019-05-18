@@ -1,151 +1,337 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-    <style type="text/css">
-                body { background:#eee; margin:1em; text-align:center; }
-        canvas { display:block; margin:1em auto; background:#fff; border:1px solid #ccc }
-    </style>
+	<title></title>
+	<style>
+html,body, .main
+{
+	height: 100vh;
+	width: 99%;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	/*justify-content: space-around;*/
+	box-sizing: border-box;
+
+}
+.set
+{
+	width: 10%;
+	height: 100%;
+}
+#canvasDiv
+{
+	width: 90%;
+	height: 100%;
+}
+.s
+{
+	height: calc(100%/7);
+	width: 80%;
+}
+/*.set
+{
+	width: 20%;
+	height: 20%;
+	background: #ff9af6;
+	padding:2%;
+}
+.option
+{
+    background-color:red;
+    display: inline-block;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+}*/
+.first
+{
+	background: url(https://sc01.alicdn.com/kf/HTB13nM5OpXXXXaQXFXX760XFXXXJ/Natural-White-Bristle-Paint-Brush-With-Red.png_50x50.png);
+	background-repeat: no-repeat;
+
+}
+.fourth
+{
+	background: url(https://static.getjar.com/icon-50x50/01/830027_thm.png);
+	background-repeat: no-repeat;
+
+}
+.option.active
+{
+    border:1px solid blue;
+}
+input[type="color"] {
+	-webkit-appearance: none;
+	border: none;
+	width: 32px;
+	height: 32px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+
+	</style>
 </head>
 <body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<p>Showing how to use transform methods on the HTML5 Canvas Context to selectively zoom in and out. Drag to pan. Click to zoom at that location. Shift-click to zoom out. Mousewheel up/down over the canvas to zoom in to/out from that location.</p>
+<div class="main">
+	
+		<div class="set">
+	<input type="color" id="color" class="s">
+	<input type="range" id="range" min="0" max="70" name="" class="s">
+	<div id="choosen-color s"></div>
 
-<canvas></canvas>
+	<div class="option first s">brush_1</div>
+	<div class="option first s">brush_2</div>
+	<div class="option first s">brush_3</div>
+	<div class="option first s">brush_4</div>
 
 
+	<div class="option fourth s">eraser</div>
+	<button id="undo" class="s">undo</button>
+</div>
+<div id="canvasDiv" style="border:2px solid black;"></div>
+		
+</div>
 <script type="text/javascript">
+var canvasDiv = document.getElementById('canvasDiv');
+
+var paint;
+var clickX = new Array();
+var clickY = new Array();
+var clickDrag = new Array();
+var clickColor = new Array();
+var clickSize = new Array();
+var clickTool = new Array();
+var outlineImage = new Image();
+var curColor = "#df4b26";
+var curSise = 5;
+var curTool = "brush_1";
+var canvasWidth = $('#canvasDiv').width();
+var canvasHeight = $('#canvasDiv').height();
+var lastPoint;
+// alert(canvasHeight);
+
+outlineImage.src = "https://svgsilh.com/png-1024/733353.png";
+canvas = document.createElement('canvas');
+canvas.setAttribute('width', canvasWidth + "px");
+canvas.setAttribute('height', canvasHeight + "px");
+canvas.setAttribute('id', 'canvas');
+canvasDiv.appendChild(canvas);
+var canvasWidth = canvas.width;
+var canvasHeight = canvas.height;
+if(typeof G_vmlCanvasManager != 'undefined') {
+	canvas = G_vmlCanvasManager.initElement(canvas);
+}
+context = canvas.getContext("2d");
+ctx = canvas.getContext("2d");
+
+context.drawImage(outlineImage, 0, 0, canvasWidth, canvasHeight);
+
+$('#canvas').mousedown(function(e){
+	var mouseX = e.pageX - this.offsetLeft;
+	var mouseY = e.pageY - this.offsetTop;
+	paint = true;
+	addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+	redraw();
+});
+
+$('#canvas').mousemove(function(e){
+  if(paint){
+    addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+    redraw();
+  }
+});
+
+$('#canvas').mouseup(function(e){
+  paint = false;
+});
+
+$('#canvas').mouseleave(function(e){
+  paint = false;
+});
+
+function addClick(x,y,dragging) 
+{
+	clickX.push(x);
+	clickY.push(y);
+	clickDrag.push(dragging);
+    clickTool.push(curTool);
+	clickColor.push(curColor);
+	clickSize.push(curSise);
+}
+
+function redraw(){
+	context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
+	context.strokeStyle = curColor;
+	context.lineJoin = "round";
+
+	
+	for(var i=0; i < clickX.length; i++) {		
+	    if (clickTool[i] == "brush_1") {
+	    	context.beginPath();
+	    	context.globalAlpha = 0.2;
+			context.lineCap = "round";    
+
+
+		    if(clickDrag[i] && i)
+		    {
+		    	context.moveTo(clickX[i-1], clickY[i-1]);
+		    }
+		    else
+		    {
+		    	context.moveTo(clickX[i]+8, clickY[i]);
+		    }
+		    context.lineTo(clickX[i], clickY[i]);
+
+		    context.closePath();
+		    context.strokeStyle = clickColor[i];
+			context.lineWidth = clickSize[i];
+			// console.log(curSise[i]);
+		    context.stroke();
+	    	context.globalAlpha = 1;
+
+	    }
+	    	else if (clickTool[i] == "brush_3") {
+	    	
+	    }
+
+	    	else if (clickTool[i] == "brush_4") {
+	    	context.beginPath();
+	    	context.globalAlpha = 1;
+	    	context.shadowOffsetX = 2;  
+   			context.shadowOffsetY = 2;
+   			context.shadowBlur    = 7;
+
+   			context.shadowColor   = clickColor[i];
+		    if(clickDrag[i] && i)
+		    {
+		    	context.moveTo(clickX[i-1], clickY[i-1]);
+		    }
+		    else
+		    {
+		    	context.moveTo(clickX[i]-1, clickY[i]);
+		    }
+		    context.lineTo(clickX[i], clickY[i]);
+
+		    context.closePath();
+		    context.strokeStyle = clickColor[i];
+			context.lineWidth = clickSize[i];
+			// console.log(curSise[i]);
+		    context.stroke();
+		    context.shadowOffsetX = 0;  
+   			context.shadowOffsetY = 0;
+   			context.shadowBlur    = 0;
+	    }
+	    	else if (clickTool[i] == "brush_2") {
+	  //   	var brush = new Image; 
+	  //   	// brush.onload = draw; 
+	  //   	brush.src = "http://www.tricedesigns.com/wp-content/uploads/2012/01/brush2.png";
+			// // var ctx = canvas.getContext("2d");
+			
+			// // function draw() {
+			//   // draw image
+			//   context.drawImage(brush,clickX[i-1], clickY[i-1]);
+
+			//   // set composite mode
+			//   context.globalCompositeOperation = "source-in";
+
+			//   // draw color
+			//   context.fillStyle = "yellow";
+			//   context.fillRect(0, 0, canvas.width, canvas.height);
+			// // }
+
+
+
+
+
+			var br = new Image; 
+			// br.onload = draw; 
+			br.src = "http://www.tricedesigns.com/wp-content/uploads/2012/01/brush2.png";
+			var ctx = canvas.getContext("2d");
+
+			// function draw() {
+			//   // draw color
+			//   ctx.fillStyle = "#09f";
+			//   ctx.fillRect(clickX[i-1], clickY[i-1], 50, 50);
+			  
+			  // // set composite mode
+			  // ctx.globalCompositeOperation = "destination-in";
+			  
+			  // draw image
+			  ctx.drawImage(br, clickX[i-1], clickY[i-1]);
+// }
+	    }
+	    	else if (clickTool[i] == "eraser") {
+	    	context.beginPath();
+		    if(clickDrag[i] && i)
+		    {
+		    	context.moveTo(clickX[i-1], clickY[i-1]);
+		    }
+		    else
+		    {
+		    	context.moveTo(clickX[i]-1, clickY[i]);
+		    }
+		    context.lineTo(clickX[i], clickY[i]);
+		    context.closePath();
+		    context.strokeStyle = "white";
+			context.lineWidth = clickSize[i];
+			// console.log(curSise[i]);
+		    context.stroke();
+	    }
+	    
+	  }
+context.drawImage(outlineImage, 0, 0, canvasWidth, canvasHeight);
+
+}
+
+jQuery('#color').on('change',function(){
+	jQuery('#choosen-color').text(jQuery(this).val());
+	curColor = jQuery(this).val();
+	alert(jQuery(this).val());
+});
+
+
+jQuery('#range').on('change',function(){
+	curSise = jQuery(this).val();
+	alert(jQuery(this).val());
+});
     
-    var canvas = document.getElementsByTagName('canvas')[0];
-    canvas.width = 800;
-canvas.height = 600;
-
-    var gkhead = new Image;
-
-    window.onload = function(){     
-    
-            var ctx = canvas.getContext('2d');
-            trackTransforms(ctx);
-          
-    function redraw(){
-
-          // Clear the entire canvas
-          var p1 = ctx.transformedPoint(0,0);
-          var p2 = ctx.transformedPoint(canvas.width,canvas.height);
-          ctx.clearRect(p1.x,p1.y,p2.x-p1.x,p2.y-p1.y);
-
-          ctx.save();
-          ctx.setTransform(1,0,0,1,0,0);
-          ctx.clearRect(0,0,canvas.width,canvas.height);
-          ctx.restore();
-
-          ctx.drawImage(gkhead,0,0);
-
-        }
-        redraw();
-
-      var lastX=canvas.width/2, lastY=canvas.height/2;
-
-      var dragStart,dragged;
-
-      canvas.addEventListener('mousedown',function(evt){
-          document.body.style.mozUserSelect = document.body.style.webkitUserSelect = document.body.style.userSelect = 'none';
-          lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
-          lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
-          dragStart = ctx.transformedPoint(lastX,lastY);
-          dragged = false;
-      },false);
-
-     
-
-     
-
-      var scaleFactor = 1.1;
-
-      var zoom = function(clicks){
-          var pt = ctx.transformedPoint(lastX,lastY);
-          ctx.translate(pt.x,pt.y);
-          var factor = Math.pow(scaleFactor,clicks);
-          ctx.scale(factor,factor);
-          ctx.translate(-pt.x,-pt.y);
-          redraw();
-      }
-
-      var handleScroll = function(evt){
-          var delta = evt.wheelDelta ? evt.wheelDelta/40 : evt.detail ? -evt.detail : 0;
-          if (delta) zoom(delta);
-          return evt.preventDefault() && false;
-      };
-    
-      canvas.addEventListener('DOMMouseScroll',handleScroll,false);
-      canvas.addEventListener('mousewheel',handleScroll,false);
-    };
-
-    gkhead.src = 'http://phrogz.net/tmp/gkhead.jpg';
-    
-    // Adds ctx.getTransform() - returns an SVGMatrix
-    // Adds ctx.transformedPoint(x,y) - returns an SVGPoint
-    function trackTransforms(ctx){
-      var svg = document.createElementNS("http://www.w3.org/2000/svg",'svg');
-      var xform = svg.createSVGMatrix();
-      ctx.getTransform = function(){ return xform; };
-
-      var savedTransforms = [];
-      var save = ctx.save;
-      ctx.save = function(){
-          savedTransforms.push(xform.translate(0,0));
-          return save.call(ctx);
-      };
-    
-      var restore = ctx.restore;
-      ctx.restore = function(){
-        xform = savedTransforms.pop();
-        return restore.call(ctx);
-              };
-
-      var scale = ctx.scale;
-      ctx.scale = function(sx,sy){
-        xform = xform.scaleNonUniform(sx,sy);
-        return scale.call(ctx,sx,sy);
-              };
-    
-      var rotate = ctx.rotate;
-      ctx.rotate = function(radians){
-          xform = xform.rotate(radians*180/Math.PI);
-          return rotate.call(ctx,radians);
-      };
-    
-      var translate = ctx.translate;
-      ctx.translate = function(dx,dy){
-          xform = xform.translate(dx,dy);
-          return translate.call(ctx,dx,dy);
-      };
-    
-      var transform = ctx.transform;
-      ctx.transform = function(a,b,c,d,e,f){
-          var m2 = svg.createSVGMatrix();
-          m2.a=a; m2.b=b; m2.c=c; m2.d=d; m2.e=e; m2.f=f;
-          xform = xform.multiply(m2);
-          return transform.call(ctx,a,b,c,d,e,f);
-      };
-    
-      var setTransform = ctx.setTransform;
-      ctx.setTransform = function(a,b,c,d,e,f){
-          xform.a = a;
-          xform.b = b;
-          xform.c = c;
-          xform.d = d;
-          xform.e = e;
-          xform.f = f;
-          return setTransform.call(ctx,a,b,c,d,e,f);
-      };
-    
-      var pt  = svg.createSVGPoint();
-      ctx.transformedPoint = function(x,y){
-          pt.x=x; pt.y=y;
-          return pt.matrixTransform(xform.inverse());
-      }
+$(".option").click(
+        function(event)
+    {
+        $(this).addClass("active").siblings().removeClass("active");
+        curTool = $(this).text();
+        alert($(this).text());
     }
+);
+function undoLast() {
+    clickX.pop();
+	clickY.pop();
+	clickDrag.pop();
+    clickTool.pop();
+	clickColor.pop();
+	clickSize.pop();
+    redraw();
+}
+
+
+var interval;
+$("#undo").mousedown(function () {
+    interval = setInterval(undoLast, 50);
+}).mouseup(function () {
+    clearInterval(interval);
+});
+
+
 </script>
+
 </body>
 </html>

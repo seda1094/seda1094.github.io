@@ -10,12 +10,9 @@ let undoCount = 0;
   let code = "";
 let draft = document.getElementById("draft");
 let main = document.getElementById("main");
-let undo_1 = document.getElementById("undo_1");
+let undo_1 = document.getElementById("undo_1"); 
 let undo_2 = document.getElementById("undo_2");
 let undo_3 = document.getElementById("undo_3");
-let undo_4 = document.getElementById("undo_4");
-let undo_5 = document.getElementById("undo_5");
-
 draft.setAttribute('width', canvasWidth);
 draft.setAttribute('height', canvasHeight);
 main.setAttribute('width', canvasWidth);
@@ -115,6 +112,7 @@ else {
                 prY = point.y;
                 // console.log(prev.x+"px"+prev.y+"py"+point.x+"curX"+point.y+"curY"+curColor)
                 if (brush == "brush") {
+                    alpha = $('#brushOpacity').val();
                     if (isZoom) {
                         draw(prev.x/scale+(xScroll/scale), prev.y/scale+(yScroll/scale), point.x/scale+(xScroll/scale), point.y/scale+(yScroll/scale), curColor)
                     }
@@ -124,6 +122,7 @@ else {
                     }
                 }
                 else if (brush == "stars") {
+                    alpha = $('#brushOpacity').val();
                     if (isZoom) {
                         stars(prev.x/scale+(xScroll/scale), prev.y/scale+(yScroll/scale), point.x/scale+(xScroll/scale), point.y/scale+(yScroll/scale), curColor,curSize)
                     }
@@ -132,16 +131,18 @@ else {
                         stars(prev.x, prev.y, point.x, point.y,curColor,curSize)
                     }
                 }     
-                else if (brush == "blur") {
+                else if (brush == "strokeStrange") {
+                    alpha = $('#brushOpacity').val();
                     if (isZoom) {
-                        blur(prev.x/scale+(xScroll/scale), prev.y/scale+(yScroll/scale), point.x/scale+(xScroll/scale), point.y/scale+(yScroll/scale), curColor,curSize)
+                        strokeStrange(prev.x/scale+(xScroll/scale), prev.y/scale+(yScroll/scale), point.x/scale+(xScroll/scale), point.y/scale+(yScroll/scale), curColor,curSize)
                     }
                     else
                     {
-                        blur(prev.x, prev.y, point.x, point.y,curColor,curSize)
+                        strokeStrange(prev.x, prev.y, point.x, point.y,curColor,curSize)
                     }
                 }           
                 else if (brush == "eraser") {
+                    alpha = 1;
                     if (isZoom) {
                         draw(prev.x/scale+(xScroll/scale), prev.y/scale+(yScroll/scale), point.x/scale+(xScroll/scale), point.y/scale+(yScroll/scale), whiteColor)
                     }
@@ -149,14 +150,11 @@ else {
                     {
                         draw(prev.x, prev.y, point.x, point.y,whiteColor)
                     }
-                }          
+                }   
                 prev = point;                                        // update prev. point
-
         oldX = e.pageX;
         oldY = e.pageY;
-        
         ctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight);     
-
     };
 
 
@@ -170,7 +168,7 @@ else {
         ctx.clearRect(0, 0, main.width, main.height);   // clear draft
 
         undo++
-        if (undo == 6) {
+        if (undo == 4) {
             undo = 1
         }
         var name = "undo_" + undo;

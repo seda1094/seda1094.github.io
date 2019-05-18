@@ -57,6 +57,9 @@ var keyCode = e.keyCode;
   if ((event.ctrlKey) && event.which === 90) {
     undoFunc()
   }
+  if ((event.ctrlKey) && event.which === 83) {
+    getImage()
+  }
   if( keyCode==187 ) {
         zoomin();
     }
@@ -148,7 +151,7 @@ function checkCode(num) {
     // window.location = 'chrome://restart';
     // clearStorage()
     // codeGen();
-    return false;
+    return false; 
   }
 }
 
@@ -157,7 +160,7 @@ function generateStorageImg() {
     // alert(i)
 
     var name = "layout_" + generateCount;
-    $(".layout").append("<img width='200' onclick='getLayoutId(this)' height='100' class = 'myClass' id='" + name + "'></canvas>");
+  $(".layout").append("<img onclick='getLayoutId(this)' class = 'myClass' id='" + name + "'></canvas>");
     // $(".layout").append("<h1 class='layoutNumber' onclick='getLayoutId(this)' >" + name + "</h1>");
 
     // Put the object into storage
@@ -206,7 +209,7 @@ $('.chooseImageDiv').on('click', function () {
 function zoomin() {
   scale = 2.1
   isZoom = true;
-  zoomPoint+=0.2;
+  zoomPoint++;
   let draftWidth = draft.clientWidth;
   let mainWidth = main.clientWidth;
   let draftHeight = draft.clientHeight;
@@ -229,7 +232,7 @@ function zoomin() {
 function zoomout() {
 
   isZoom = false
-  zoomPoint-=0.2;
+  zoomPoint--;
   let draftWidth = draft.clientWidth;
   let mainWidth = main.clientWidth;
   let draftHeight = draft.clientHeight;
@@ -264,11 +267,9 @@ function getXY(e) {
   // var r = draft.getBoundingClientRect();
   return { x: e.clientX, y: e.clientY }
 }
-
-
 function getImage() {
   var name = "layout_" + generateCount;
-  $(".layout").append("<img width='200' onclick='getLayoutId(this)' height='100' class = 'myClass' id='" + name + "'></canvas>");
+  $(".layout").append("<img onclick='getLayoutId(this)' class = 'myClass' id='" + name + "'></canvas>");
   // $(".layout").append("<h1 class='layoutNumber' onclick='getLayoutId(this)' >" + name + "</h1>");
   generateCount++;
   ////new
@@ -289,12 +290,13 @@ function getImage() {
 
   console.log('retrievedObject: ', JSON.parse(retrievedObject));
 
-
-
   // Canvas2Image.saveAsPNG(canvas);
 
   document.getElementById(name).src = JSON.parse(retrievedObject)[name];
 }
+
+
+
 function removeImg() {
   localStorage.thisVersionLocalStorage = '';
 }
@@ -304,12 +306,13 @@ function getLayoutId(obj) {
   // alert(w)
   // alert(h)
   ctx.clearRect(0, 0, w, h);
-  clickedLayoutId = $(obj).id();
-  alert(clickedLayoutId)
+  clickedLayoutId = $(obj).attr('id');
+
   // var changeCanvas = document.getElementById(clickedLayoutId);
   // var changectx = changeCanvas.getContext("2d");
-  let a = $('#clickedLayoutId').prop('src');
-  alert("src" + a)
+  let a = $('#'+clickedLayoutId).prop('src');
+  // alert("src" + a)
+
   //++mctx.drawImage(document.getElementById('clickedLayoutId'), imageXcoord, imageYcoord, imageWight, imageHeight);                 // copy drawing to main
   //---------
 
@@ -365,7 +368,7 @@ function stars(prX, prY, ptX, ptY, color, size) {
 }
 
 
-function blur(prX, prY, ptX, ptY, color, size) {
+function strokeStrange(prX, prY, ptX, ptY, color, size) {
   ctx.lineJoin = ctx.lineCap = 'butt';
   ctx.lineWidth = size;
   ctx.strokeStyle = color;
@@ -380,6 +383,37 @@ function blur(prX, prY, ptX, ptY, color, size) {
   // ctx.drawImage(outlineImage, 0, 0, w, h);                 // copy drawing to main
 
 }
+
+
+// function blur(prX, prY, ptX, ptY, color, size) {
+ 
+//   // ctx.lineJoin = "round";
+//   ctx.strokeStyle = color;
+//   ctx.lineWidth = curSize;
+//   ctx.beginPath();  
+//   mctx.shadowOffsetX = 7;  
+//   mctx.shadowOffsetY = 7;
+//   mctx.shadowBlur    = 7;
+//   ctx.shadowOffsetX = 7;  
+//   ctx.shadowOffsetY = 7;
+//   ctx.shadowBlur    = 7;                                // new path
+//   ctx.moveTo(prX, prY);                       // start at prev. point
+//   // console.log("prev" + prev.x/1.1 + "-" + prev.y/1.1)
+//   ctx.lineTo(ptX, ptY);
+//   // console.log("point" + point.x + "-" + point.y)
+//   // ctx.globalAlpha = 1;  
+//   // ctx.drawImage(outlineImage, 0, 0, w, h);                 // copy drawing to main
+//   // ctx.globalAlpha = alpha;                      // line to new point
+//   ctx.stroke();
+//   // ctx.drawImage(outlineImage,0,0,w,h); 
+//   mctx.shadowOffsetX = 0;  
+//   mctx.shadowOffsetY = 0;
+//   mctx.shadowBlur    = 0;
+//   ctx.shadowOffsetX = 0;  
+//   ctx.shadowOffsetY = 0;
+//   ctx.shadowBlur    = 0;
+
+// }
 // function blur(prX,prY,ptX,ptY,color,size)
 // {
 
@@ -388,14 +422,14 @@ function blur(prX, prY, ptX, ptY, color, size) {
 function undoFunc() {
   // alert("undo count"+undoCount)
   undoCount++;
-  if (undoCount > 4) {
+  if (undoCount > 2) {
     $("#back").attr("src"," img/arr.png");
     return;
   }
   // ctx.clearRect(0, 0, w, h);
 
   if (undo == 1) {
-    name = "undo_5";
+    name = "undo_3";
 
   }
   else {
@@ -417,7 +451,7 @@ function undoFunc() {
   // ctx.clearRect(0, 0, w, h);
   undo--;
   if (undo == 0) {
-    undo = 5
+    undo = 3
   }
 }
 function hideStartButton() {
@@ -459,6 +493,9 @@ function chooseImage() {
 // }
 
 
+
+
+
 // Saving image
 
 $('#savebtn').on('click', function (e) {
@@ -466,6 +503,11 @@ $('#savebtn').on('click', function (e) {
     this.save('png');
   });
 });
+
+         
+
+
+
 
 
 function ckeckImageSizes(iw, ih, cw, ch) {
