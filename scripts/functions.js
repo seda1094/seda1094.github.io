@@ -1,10 +1,7 @@
-
-//getting tools settings with events
 $('#color').on('change', function () {
   $('#choosen-color').text($(this).val());
   curColor = $(this).val();
   $('.cc').css("fill",curColor)
-  // alert(jQuery(this).val());
 });
 
 function changeColor() {
@@ -13,21 +10,8 @@ function changeColor() {
 
 $('#brushSize').on('change', function () {
   curSize = $(this).val();
-  // alert(jQuery(this).val());
   $('#sizeText').text(curSize+"px");
 });
-
-// $( "#brush" ).hover(function() {
-
-//     $('#star').show();
-
-//   }, function() {
-
-//     $('#star').hide();
-
-//   });
-
-
 
 document.addEventListener("keydown", keyDownTextField, false);
 
@@ -35,14 +19,12 @@ function keyDownTextField(e) {
 var keyCode = e.keyCode;
   if(keyCode==221) {
     curSize++;
-    // alert(curSize)
     $('#brushSize').val(curSize);
   $('#sizeText').text(curSize+"px");
 
   } 
   if(keyCode==219) {
     curSize--;
-    // alert(curSize)
     $('#brushSize').val(curSize);
   $('#sizeText').text(curSize+"px");
 
@@ -50,9 +32,13 @@ var keyCode = e.keyCode;
 
   if(keyCode==66) {
     brush = "brush";
+    $('.option').removeClass('active');
+    $('#br').addClass('active');
   } 
   if(keyCode==69) {
     brush = "eraser";
+    $(".option").removeClass('active');
+        $('#eraser').addClass('active');
   } 
   if ((event.ctrlKey) && event.which === 90) {
     undoFunc()
@@ -69,21 +55,9 @@ var keyCode = e.keyCode;
   }
 }
 
-
-// document.getElementById('body').addEventListener('keyup', function (e) {
-//   if (e.keyCode === 39){
-//     curSize++;
-//     alert(curSize)
-//     $('#brushSize').val(curSize);
-//   }
-// });
-
-
 $('#brushOpacity').on('change', function () {
   alpha = $(this).val();
   $('#sizeTrans').text((alpha * 100) +"%");
-
-  // alert(jQuery(this).val());
 });
 
 function changeColor() {
@@ -97,8 +71,6 @@ $(".option").click(
         brush = $(this).data("b")
   }
 );
-
-
 
 document.getElementById('getCode').addEventListener('click', function () {
   clearStorage();
@@ -115,7 +87,6 @@ document.getElementById('getCode').addEventListener('click', function () {
   mctx.fill();
   mctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight);
   ctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight);
-  
 });
 let input = document.getElementById('insertCode');
 
@@ -124,18 +95,11 @@ input.addEventListener('keyup', function (e) {
   if (e.keyCode === 13){
   let code = document.getElementById('insertCode').value;
     if (chooseImage() && checkCode(code)) {
-      // codeAllSec();
       hideStartButton();
       textCodeWRTT();
     }
   } 
 });
-
-// function codeAllSec() {
-//   let code = document.getElementById('insertCode').value;
-//         checkCode(code)
-// }
-
 
 function checkCode(num) {
   if (num == localStorage.codeNum) {
@@ -146,11 +110,6 @@ function checkCode(num) {
   {
     $(".hiddenAlertsTexts").css("display","block");
     $( ".hiddenAlertsTexts" ).html( "You entered wrong code" );
-
-    // alert("wrong code");
-    // window.location = 'chrome://restart';
-    // clearStorage()
-    // codeGen();
     return false; 
   }
 }
@@ -161,49 +120,29 @@ function generateStorageImg() {
 
     var name = "layout_" + generateCount;
   $(".layout").append("<img onclick='getLayoutId(this)' class = 'myClass' id='" + name + "'></canvas>");
-    // $(".layout").append("<h1 class='layoutNumber' onclick='getLayoutId(this)' >" + name + "</h1>");
-
-    // Put the object into storage
-
-    // Retrieve the object from storage
     var retrievedObject = localStorage.getItem(name);
-
-    // console.log('retrievedObject: ', JSON.parse(retrievedObject));
-
     document.getElementById(name).src = JSON.parse(retrievedObject)[name];
     generateCount++;
   }
-
 }
 
 $('.chooseImage').on('click', function () {
   src = $(this).attr('src');
-  // alert(src)
   outlineImage.src = src;
   alpha = 1;
   draft.style.opacity = alpha;                        // CSS alpha for draft                       
   mctx.globalAlpha = alpha;
-  // ctx.clearRect(0, 0, w, h)  
   mctx.clearRect(0, 0, w, h)
- // $('#hiddenAlertsTexts').html(" ");
-  // ctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight); 
   mctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight);
-  // alpha = 0.4;
-
-  // alert(jQuery(this).val());
 });
 
-
 $('.chooseImageDiv').on('click', function () {
-      // $(this).css('animation','none');
       $('#getCode').css('display','block');
       $('#insertCode').css('display','block');
       $('#getCode').css('opacity',1);
       $('#insertCode').css('opacity',1);
       $('#getCode').css('animation-name','zoomInDown');
       $('#insertCode').css('animation-name','zoomInDown');
-
-      
 });
 
 function zoomin() {
@@ -214,8 +153,6 @@ function zoomin() {
   let mainWidth = main.clientWidth;
   let draftHeight = draft.clientHeight;
   let mainHeight = main.clientHeight;
-  // alert(draftWidth);
-  // alert(draftHeight);
   if (zoomPoint >= 2) {
     zoomPoint = 1;
     return false;
@@ -230,31 +167,24 @@ function zoomin() {
 }
 
 function zoomout() {
-
   isZoom = false
   zoomPoint--;
   let draftWidth = draft.clientWidth;
   let mainWidth = main.clientWidth;
   let draftHeight = draft.clientHeight;
   let mainHeight = main.clientHeight;
-  // alert(draftWidth);
   if (zoomPoint <= -1) {
     zoomPoint = 0;
     return false;
-
   }
   else {
     draft.style.width = (draftWidth / scale) + "px";
     draft.style.height = (draftHeight / scale) + "px";
-
     main.style.width = (mainWidth / scale) + "px";
     main.style.height = (mainHeight / scale) + "px";
   }
   scale = 1
 }
-
-/////////////////////////////////////////////////////////////////
-
 
 function scrollFunc() {
   var elmnt = document.getElementById("scroll");
@@ -264,18 +194,12 @@ function scrollFunc() {
 }
 
 function getXY(e) {
-  // var r = draft.getBoundingClientRect();
   return { x: e.clientX, y: e.clientY }
 }
 function getImage() {
   var name = "layout_" + generateCount;
   $(".layout").append("<img onclick='getLayoutId(this)' class = 'myClass' id='" + name + "'></canvas>");
-  // $(".layout").append("<h1 class='layoutNumber' onclick='getLayoutId(this)' >" + name + "</h1>");
   generateCount++;
-  ////new
-
-  // let w = layoutCanvas.width;
-  // let h = layoutCanvas.height;
 
   var canvas = document.getElementById(name);
 
@@ -287,15 +211,10 @@ function getImage() {
 
   // Retrieve the object from storage
   var retrievedObject = localStorage.getItem(name);
-
   console.log('retrievedObject: ', JSON.parse(retrievedObject));
-
   // Canvas2Image.saveAsPNG(canvas);
-
   document.getElementById(name).src = JSON.parse(retrievedObject)[name];
 }
-
-
 
 function removeImg() {
   localStorage.thisVersionLocalStorage = '';
@@ -303,30 +222,16 @@ function removeImg() {
 
 
 function getLayoutId(obj) {
-  // alert(w)
-  // alert(h)
   ctx.clearRect(0, 0, w, h);
   clickedLayoutId = $(obj).attr('id');
-
-  // var changeCanvas = document.getElementById(clickedLayoutId);
-  // var changectx = changeCanvas.getContext("2d");
   let a = $('#'+clickedLayoutId).prop('src');
-  // alert("src" + a)
-
-  //++mctx.drawImage(document.getElementById('clickedLayoutId'), imageXcoord, imageYcoord, imageWight, imageHeight);                 // copy drawing to main
-  //---------
-
   changeCanvas = new Image();
-
   // Retrieve the object from storage
   var retrievedObject = localStorage.getItem(clickedLayoutId);
   changeCanvas.src = JSON.parse(retrievedObject)[clickedLayoutId];
-
-
   mctx.clearRect(0, 0, w, h);
   mctx.globalAlpha = 1;
   mctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight);                 // copy drawing to main
-  // mctx.globalAlpha = alpha; 
   mctx.drawImage(changeCanvas, 0, 0, w, h);
   ctx.clearRect(0, 0, w, h);
 }
@@ -343,14 +248,8 @@ function draw(prX, prY, ptX, ptY, color) {
   ctx.lineWidth = curSize;
   ctx.beginPath();                                  // new path
   ctx.moveTo(prX, prY);                       // start at prev. point
-  // console.log("prev" + prev.x/1.1 + "-" + prev.y/1.1)
   ctx.lineTo(ptX, ptY);
-  // console.log("point" + point.x + "-" + point.y)
-  // ctx.globalAlpha = 1;  
-  // ctx.drawImage(outlineImage, 0, 0, w, h);                 // copy drawing to main
-  // ctx.globalAlpha = alpha;                      // line to new point
   ctx.stroke();
-  // ctx.drawImage(outlineImage,0,0,w,h);                           // copy drawing to main
 }
 
 function stars(prX, prY, ptX, ptY, color, size) {
@@ -364,7 +263,6 @@ function stars(prX, prY, ptX, ptY, color, size) {
     ctx.fillStyle = color;
     ctx.fillRect(ptX + offsetX, ptY + offsetY, 1, 1);
   }
-  // ctx.drawImage(outlineImage, 0, 0, w, h);                 // copy drawing to main
 }
 
 
@@ -380,54 +278,15 @@ function strokeStrange(prX, prY, ptX, ptY, color, size) {
   ctx.lineTo(ptX - 5, ptY - 5);
   ctx.stroke();
   ctx.lineJoin = ctx.lineCap = 'round';
-  // ctx.drawImage(outlineImage, 0, 0, w, h);                 // copy drawing to main
-
 }
 
 
-// function blur(prX, prY, ptX, ptY, color, size) {
- 
-//   // ctx.lineJoin = "round";
-//   ctx.strokeStyle = color;
-//   ctx.lineWidth = curSize;
-//   ctx.beginPath();  
-//   mctx.shadowOffsetX = 7;  
-//   mctx.shadowOffsetY = 7;
-//   mctx.shadowBlur    = 7;
-//   ctx.shadowOffsetX = 7;  
-//   ctx.shadowOffsetY = 7;
-//   ctx.shadowBlur    = 7;                                // new path
-//   ctx.moveTo(prX, prY);                       // start at prev. point
-//   // console.log("prev" + prev.x/1.1 + "-" + prev.y/1.1)
-//   ctx.lineTo(ptX, ptY);
-//   // console.log("point" + point.x + "-" + point.y)
-//   // ctx.globalAlpha = 1;  
-//   // ctx.drawImage(outlineImage, 0, 0, w, h);                 // copy drawing to main
-//   // ctx.globalAlpha = alpha;                      // line to new point
-//   ctx.stroke();
-//   // ctx.drawImage(outlineImage,0,0,w,h); 
-//   mctx.shadowOffsetX = 0;  
-//   mctx.shadowOffsetY = 0;
-//   mctx.shadowBlur    = 0;
-//   ctx.shadowOffsetX = 0;  
-//   ctx.shadowOffsetY = 0;
-//   ctx.shadowBlur    = 0;
-
-// }
-// function blur(prX,prY,ptX,ptY,color,size)
-// {
-
-// }
-
 function undoFunc() {
-  // alert("undo count"+undoCount)
   undoCount++;
   if (undoCount > 2) {
     $("#back").attr("src"," img/arr.png");
     return;
   }
-  // ctx.clearRect(0, 0, w, h);
-
   if (undo == 1) {
     name = "undo_3";
 
@@ -437,8 +296,6 @@ function undoFunc() {
     name = "undo_" + c;
 
   }
-  // alert(undo)
-  // alert(name)
   let w = main.width;
   let h = main.height;
   var changeCanvas = document.getElementById(name);
@@ -446,9 +303,7 @@ function undoFunc() {
   mctx.clearRect(0, 0, w, h);
   mctx.globalAlpha = 1;
   mctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight);                 // copy drawing to main
-  // // mctx.globalAlpha = alpha; 
   mctx.drawImage(changeCanvas, 0, 0, w, h);
-  // ctx.clearRect(0, 0, w, h);
   undo--;
   if (undo == 0) {
     undo = 3
@@ -457,9 +312,7 @@ function undoFunc() {
 function hideStartButton() {
   $(".start").delay(100).fadeOut();
   $(".hiddenAlertsTexts").delay(100).fadeOut();
-  
   $(".main").css('filter', 'blur(0px)');
-  // $(".start").remove();
     mctx.clearRect(0, 0, w, h);
       ctx.clearRect(0, 0, w, h);
 }
@@ -467,48 +320,18 @@ function chooseImage() {
   if (src != "") {
     return true;
   }
-
   else {
     $(".hiddenAlertsTexts").css("display","block");
     $( ".hiddenAlertsTexts" ).html( "Please, choose image" );
     return;
   }
 }
-
-//caman js ,,,,don't saving previuos data
-// $('input[type=range]').change(applyFilters);
-
-// function applyFilters() {
-//   var hue = parseInt($('#hue').val());
-//   var cntrst = parseInt($('#contrast').val());
-//   var vibr = parseInt($('#vibrance').val());
-//   var sep = parseInt($('#sepia').val());
-//   var brightness = parseInt($('#brightness').val());
-
-
-//   Caman('#main', function() {
-//     this.revert(false);
-//     this.hue(hue).contrast(cntrst).vibrance(vibr).sepia(sep).brightness(brightness).render();
-//   });
-// }
-
-
-
-
-
 // Saving image
-
 $('#savebtn').on('click', function (e) {
   Caman('#main', function () {
     this.save('png');
   });
 });
-
-         
-
-
-
-
 
 function ckeckImageSizes(iw, ih, cw, ch) {
   if (iw > cw && ih > ch) {
@@ -525,16 +348,12 @@ function ckeckImageSizes(iw, ih, cw, ch) {
   }
 }
 
-
-
 function codeGen() {
   let arr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
-
   for (var i = 0; i < 4; i++) {
     code += arr[Math.floor(Math.random() * arr.length)];
   }
    localStorage.codeNum = code;
-  
 }
 
 function textCodeWRTT() {

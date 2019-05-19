@@ -1,13 +1,9 @@
-
 let generateCount = 1;
-
 let canvasWidth = $(".sandwich").width();
 let canvasHeight = $(".sandwich").height();
-// alert(canvasWidth);
-// alert(canvasHeight);
 let undo = 0;
 let undoCount = 0;
-  let code = "";
+let code = "";
 let draft = document.getElementById("draft");
 let main = document.getElementById("main");
 let undo_1 = document.getElementById("undo_1"); 
@@ -74,7 +70,6 @@ let oldX = 0
 let oldY = 0
 let w = main.width;
 let h = main.height;
-//todo
 ctx.lineCap = "round";
 ctx.webkitImageSmoothingEnabled = false;
 ctx.mozImageSmoothingEnabled = false;
@@ -83,34 +78,24 @@ mctx.webkitImageSmoothingEnabled = false;
 mctx.mozImageSmoothingEnabled = false;
 mctx.imageSmoothingEnabled = false;
 
-
-
-
-
 if (window.innerHeight > window.innerWidth) {
     $(".hiddenAlertsTexts").css("display","block");
     $( ".hiddenAlertsTexts" ).html( "Please use Landscape!" );
-
 }
 else {
     draft.onmousedown = function (e) {
         isDown = true;
         prev = getXY(e);
         $("#back").attr("src"," img/undo-arrow-in-a-black-circle.svg");
-        // console.log("down" + prev.x/1.1 + "-" + prev.y/1.1);                             
     };
 
     draft.onmousemove = function (e) {
-
-            
                 draft.style.opacity = alpha;                        // CSS alpha for draft
-                // eC.style.opacity = alpha;                        
                 mctx.globalAlpha = alpha;                           // context alpha for main
                 if (!isDown) return;
                 let point = getXY(e);
                 prY = point.x;
                 prY = point.y;
-                // console.log(prev.x+"px"+prev.y+"py"+point.x+"curX"+point.y+"curY"+curColor)
                 if (brush == "brush") {
                     alpha = $('#brushOpacity').val();
                     if (isZoom) {
@@ -157,12 +142,10 @@ else {
         ctx.drawImage(outlineImage, imageXcoord, imageYcoord, imageWight, imageHeight);     
     };
 
-
     draft.onmouseup = function () {
         undoCount = 0
         isDown = false;
         mctx.globalAlpha = 1;
-        // mctx.drawImage(outlineImage, 0, 0, w, h);                 // copy drawing to main
         mctx.globalAlpha = alpha;
         mctx.drawImage(draft, 0, 0, w, h);
         ctx.clearRect(0, 0, main.width, main.height);   // clear draft
@@ -172,27 +155,9 @@ else {
             undo = 1
         }
         var name = "undo_" + undo;
-        // generateCount++;
         var undoCanvas = document.getElementById(name);
         var undoCtx = undoCanvas.getContext("2d");
         undoCtx.clearRect(0, 0, w, h)
         undoCtx.drawImage(main, 0, 0, w, h);
-        // alert(undo) 
-
     };
 }
-
-
-
-// $(document).ready(function(){
-//   "use strict"
-
-//   $(".settings").ripples({
-//     dropRadius: 15,
-//     perturbance: 22,
-//   });
-//     $(".layout").ripples({
-//     dropRadius: 15,
-//     perturbance: 22,
-//   });
-// });

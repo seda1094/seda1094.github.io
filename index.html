@@ -5,18 +5,11 @@
 	<title>Coloring</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="icon" href="img/paint-board-and-brush (1).png">
-
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-	<style>
-
-	</style>
 </head>
-
 <body>
 	<h1 class="hiddenAlertsTexts">Choose Image</h1>
-
 	<img id="outlineImage" src="img/black.png" style="display: none;">
-
 	<div class="start">
 		<div class="outlineImagesDiv">
 			<div class="chooseImageDiv u">
@@ -32,30 +25,21 @@
 				<img src="img/outlineImages/line_01.png" class="chooseImage">
 			</div>
 		</div>
-
 		<div class="startButtonDiv">
-			<!--<h1 onclick="hideStartButton()" class="startButton">GET STARTED</h1>-->
 			<div class="forFlex">
 				<h1 id="getCode" class="startButton">GET START</h1>
 				<input id="insertCode" type="text" placeholder="INSERT YOUR CODE" class="startButton inputCode">
 			</div>
-
 		</div>
-
-
-
 	</div>
-
 	<div class="main">
 		<div class="myCanvas">
 			<div id="scroll" class="sandwich" onscroll="scrollFunc()">
 				<canvas id="undo_1" class="undoClass"></canvas>
 				<canvas id="undo_2" class="undoClass"></canvas>
 				<canvas id="undo_3" class="undoClass"></canvas>
-
 				<canvas id="main"></canvas>
 				<canvas id="draft"></canvas>
-
 			</div>
 		</div>
 		<div class="menu">
@@ -76,7 +60,7 @@
 					<br>
 				</div>
 				<div class="brushes">
-					<div title="b" class="option active"  data-b="brush">
+					<div title="b" class="option active" id="br" data-b="brush">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
 					 id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="30px"
 					 height="30px" class="">
@@ -96,9 +80,7 @@
 						</g>
 					</svg>
 				</div>
-
-				<div title="e" class="option" data-b="eraser">
-
+				<div title="e" class="option" id="eraser" data-b="eraser">
 					<svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
 					 id="Layer_1" x="0px" y="0px" viewBox="0 0 512.001 512.001" style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve"
 					 width="30px" height="30" class="">
@@ -138,7 +120,6 @@
 					</svg>
 </div>
 <div class="option" data-b="strokeStrange">
-
 					<svg  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
 					 id="Capa_1" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 432.544 432.544" style="enable-background:new 0 0 432.544 432.544;"
 					 xml:space="preserve" class="">
@@ -156,7 +137,6 @@
 </div>
 				</div>
 				<br>
-				
 				<svg onclick="changeColor()" style="margin-top:2%;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50px" height="50px" viewBox="0 0 58 58" version="1.1" class=""><g>
 <title>046 - Colour Wheel</title><desc>Created with Sketch.</desc><defs/><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="046---Colour-Wheel" fill-rule="nonzero">
 <circle id="Oval" fill="#2C2F38" cx="29" cy="29" r="29" data-original="#2C2F38" class="" style="fill:#FFFFFF" data-old_color="#ffffff"/>
@@ -183,7 +163,6 @@
 <path d="M41.73,16.27 L33.24,24.76 C32.1193899,23.6291979 30.5919979,22.9951861 29,23 L29,10.9999965 C33.77469,10.9970277 38.3545549,12.8930126 41.73,16.27 Z" id="Shape" fill="#7ED09E" data-original="#7ED09E" class="active-path cc"  data-old_color="#ffffff"/>
 <path d="M35,29 C35.0043026,31.8675823 32.9817938,34.3386264 30.1699398,34.9012311 C27.3580859,35.4638357 24.5405127,33.9612105 23.4411445,31.3127325 C22.3417762,28.6642544 23.2669921,25.6080187 25.6507013,24.0139745 C28.0344105,22.4199303 31.2123054,22.7323163 33.24,24.76 C34.3708021,25.8806101 35.0048139,27.4080021 35,29 Z" id="Shape"  data-original="#2C2F38" class="cc"  data-old_color="#ffffff"/></g></g></g> 
 </svg>
-
 				<input style="display:none" class="brushColor" type="color" id="color" class="color" value="#8A4BFD">
 				<br>
 				<div class="tools">
@@ -191,29 +170,13 @@
 					<img class="tl" title="ctrl+-" src="img/zoom-out.svg" width="30" onclick="zoomout()">
 					<img class="tl" title="ctrl+s" src="img/layout.svg" width="30" onclick="getImage()">
 					<img class="tl" title="ctrl+z" id="back" src="img/undo-arrow-in-a-black-circle.svg" width="30" onclick="undoFunc()">
-
-					<!-- <img class="tl" src="img/undo-arrow-in-a-black-circle.svg" width="30" onclick="undo()">	 -->
 				</div>
 				<button style="background: none; border:none" id="savebtn"><img src="img/download-button.svg" alt="" width="30px;"></button>
 				<h1 id="codeText"></h1>
 				<br>
-
 				<p id="demo"></p>
 				<div class="con"></div>
 				<div id="status"></div>
-				<!-- for caman effects -->
-				<!-- 		<div class="effects">
-				<label for="brightness">Brightness</label><br>
-    			<input id="brightness" name="brightness" type="range" min="0" max="100" value="0"><br>
-			    <label for="hue">Hue</label><br>
-			    <input class="range_style" id="hue" name="hue" type="range" min="0" max="300" value="0"><br>
-			    <label for="contrast">Contrast</label><br>
-			    <input class="range_style" id="contrast" name="contrast" type="range" min="-20" max="20" value="0"><br>
-			    <label for="vibrance">Vibrance</label><br>
-			    <input class="range_style" id="vibrance" name="vibrance" type="range" min="0" max="400" value="0"><br>
-			    <label for="sepia">Sepia</label><br>
-			    <input class="range_style" id="sepia" name="sepia" type="range" min="0" max="100" value="0"><br>
-		</div> -->
 			</div>
 			<div class="layout">
 			</div>
@@ -223,10 +186,7 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js'></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="scripts/jquery.ripples.js" type="text/javascript"></script>
 	<script src="scripts/functions.js" type="text/javascript"></script>
 	<script src="scripts/script.js" type="text/javascript"></script>
-
 </body>
-
 </html>
