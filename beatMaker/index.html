@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style type="text/css">
+    html body .container {
+      height: 100vh;
+      ;
+      width: 100vw;
+      position: fixed;
+      top: 0;
+      left: 0;
+      font-family: BinarySoldiers;
+
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .item {
+      background-color: #000;
+      flex: 1 0 30%;
+      /* explanation below */
+      margin: 1px;
+      width: calc(100%/3);
+      font-size: 7em;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+
+      text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;/
+    }
+
+    .item:active {
+      text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+      color: #806914;
+    }
+
+    /*    .item:nth-child(3n+1) {
+      background-color: #000;
+background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+color:rgb(60, 249, 47);
+    }
+
+    .item:nth-child(3n+2) {
+      background-color: #000;
+background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+  color: rgb(255,0,255);
+
+    }
+
+    .item:nth-child(3n+3) {
+background-color: #000;
+background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+color: rgb(255, 135, 38);
+    }*/
+
+    /*
+
+@font-face {
+  font-family: neon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+}
+
+
+
+.item {
+  font-family: neon;
+  color: #FB4264;
+  font-size:  7em;
+  line-height:  7em;
+  text-shadow: 0 0 3em #F40A35;
+}
+
+
+.item {
+  animation: neon 1s ease infinite;
+  -moz-animation: neon 1s ease infinite;
+  -webkit-animation: neon 1s ease infinite;
+}
+
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }
+}
+*/
+
+    @font-face {
+      font-family: BinarySoldiers;
+      src: url("wmmusic1.TTF");
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div id = "maracas" class="item">
+      <i class="
+icon-maracas">
+      </i>
+    </div>
+    <div id="tambourine" class="item">
+      <i class="icon-tambourine">
+
+      </i>
+    </div>
+    <div id="bell" class="item">
+      <i class="icon-bell">
+
+      </i>
+    </div>
+
+    <div id="cymbal" class="item">
+      <i class="
+icon-cymbal">
+      </i>
+    </div>
+    <div id="drum" class="item">
+      <i class="icon-drum">
+
+      </i>
+    </div>
+    <div id="set"  class="item">
+      <i class="icon-drum-set">
+
+      </i>
+    </div>
+
+    <div id="hi-hat" class="item">
+      <i class="
+icon-hi-hat1">
+      </i>
+    </div>
+    <div id="drums" class="item">
+      <i class="icon-drums">
+
+      </i>
+    </div>
+    <div id="maracas1" class="item">
+      <i class="icon-maracas1"></i>
+    </div>
+
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.3.9/Tone.min.js"></script>
+  <script>
+
+    let colorArr = ["#ff8726", "#00ff23", "#ff8726", "#00ff23", "#ff8726", "#00ff23", "#ff8726", "#00ff23", "#ff8726"]
+    for (i = 1; i < 10; i++) {
+
+      $('.item:nth-child(' + i + ')').css("color", colorArr[i - 1]);
+
+
+      // const kick = new Tone.Player("./sounds/kick.wav").toMaster();
+      // const snare = new Tone.Player("./sounds/snare.wav").toMaster();
+      // const hihat = new Tone.Player("./sounds/hihat.wav").toMaster();
+      // const shaker = new Tone.Player("./sounds/shaker.wav").toMaster();
+
+
+
+      // let sounds = [kick, snare, hihat, shaker];
+
+    }
+
+const hihat = new Tone.Player("./sounds/hi-hat.wav").toMaster();
+
+
+
+
+
+
+      $(".item").click(function () {
+        let r = $(this).attr('id');
+        Tone.context.resume().then(() => {
+          hihat.start();
+        })
+      });
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+  </script>
+</body>
+
+</html>
