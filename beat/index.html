@@ -6,116 +6,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
-body
-{
-	/*display: flex;*/
-	/*justify-content: center;*/
-	background-color: black;
-}
-.i
-{
-    width: 6em;
-    height: 6em;
-    background-color: yellow;
-}
-.kick .snare 
-{
-	/*display: flex;*/
-	/*justify-content: space-around;*/
-	
-}
-.kck
-{
-    /*display: flex;*/
-    /*justify-content: space-around;*/
-}
-
- .kick input[type="checkbox"]{
-  background-image: radial-gradient(circle at center, #4facfe 0%, #00f2fe 100%);
-}
- .kick input[type="checkbox"]::before{
-  /*content: "w";*/
-color: white;
-  background-color: white; 
-}
-
-.kick input[type=checkbox]:checked {
-	background-image: radial-gradient(circle at center, #00c6fb 0%, #005bea 100%) !important;
-}
+        body , .drums{
+            /*display: flex;*/
+            /*justify-content: center;*/
+            background-color: black;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+            padding: 3%;
+        }
 
 
- .snare input[type="checkbox"]{
-background-image: radial-gradient(circle at center, #B6CEE8 0%, #F578DC 100%);
-  
-}
+        .kick .snare {
+            /*display: flex;*/
+            /*justify-content: space-around;*/
+        }
 
-.snare input[type=checkbox]:checked {
-  background-image: radial-gradient(circle at center, #7918F2 0%, #4801FF 48%, #AC32E4 100%) !important;
-}
+        .kck {
+            /*display: flex;*/
+            /*justify-content: space-around;*/
+        }
 
- .hihat input[type="checkbox"]{
-  background-image: radial-gradient(circle at center, #0fd850 0%, #f9f047 100%);
-}
+        .kick input[type="checkbox"] {
+            background-image: radial-gradient(circle at center, #4facfe 0%, #00f2fe 100%);
+        }
 
-.hihat input[type=checkbox]:checked {
-background-color: #003b64;
-background-image:  radial-gradient(circle at center, #003b64 0%, #fff200 100%) !important;
-}
- .shaker input[type="checkbox"]{
-background-image: radial-gradient(circle at center, #f83600 0%, #f9d423 100%);
-  
-}
+        .kick input[type=checkbox]:checked {
+            background-image: radial-gradient(circle at center, #00c6fb 0%, #005bea 100%) !important;
+        }
 
-.shaker input[type=checkbox]:checked {
-	background-color: #fc5296;
-background-color: #990000;
-background-image: radial-gradient(circle at center, #990000 0%, #ff0000 74%) !important;
-}
-  input[type="checkbox"]{
-  width: 10em; /*Desired width*/
-  height: 10em; /*Desired height*/
-  -webkit-appearance: none;
-  appearance: none;
-  border-radius: 5%;
-}
-input[type="checkbox"]:focus{
-        outline:0;
-    }
+        .snare input[type="checkbox"] {
+            background-image: radial-gradient(circle at center, #B6CEE8 0%, #F578DC 100%);
+        }
 
-    .instIcon
-    {
-        margin-right: 20em;
-        display: inline-block;
-        border-radius: 50%;
-        padding: 1%;
-        position: relative;
-        top: -35em;
-        
-    }
-    .instIcon img
-    {
-        width: 3em;
-        height: 3em;
-    }
+        .snare input[type=checkbox]:checked {
+            background-image: radial-gradient(circle at center, #7918F2 0%, #4801FF 48%, #AC32E4 100%) !important;
+        }
 
-    .kick .instIcon{
-     background-image: radial-gradient(circle at center, #00c6fb 0%, #005bea 100%) !important;
-    }
-        .snare .instIcon{
-  background-image: radial-gradient(circle at center, #7918F2 0%, #4801FF 48%, #AC32E4 100%) !important;
-    }
-       .hihat .instIcon{
-background-color: #003b64;
-background-image:  radial-gradient(circle at center, #003b64 0%, #fff200 100%) !important;
-    }
+        .hihat input[type="checkbox"] {
+            background-image: radial-gradient(circle at center, #0fd850 0%, #f9f047 100%);
+        }
 
-     .shaker .instIcon{
-    background-color: #fc5296;
-background-color: #990000;
-background-image: radial-gradient(circle at center, #990000 0%, #ff0000 74%) !important;
-    }
+        .hihat input[type=checkbox]:checked {
+            background-color: #003b64;
+            background-image: radial-gradient(circle at center, #003b64 0%, #fff200 100%) !important;
+        }
 
+        .shaker input[type="checkbox"] {
+            background-image: radial-gradient(circle at center, #f83600 0%, #f9d423 100%);
+        }
 
+        .shaker input[type=checkbox]:checked {
+            background-color: #fc5296;
+            background-color: #990000;
+            background-image: radial-gradient(circle at center, #990000 0%, #ff0000 74%) !important;
+        }
+
+        input[type="checkbox"] {
+            width: 3em;
+            height: 3em;
+            /*Desired height*/
+            -webkit-appearance: none;
+            appearance: none;
+            border-radius: 5%;
+        }
+
+        input[type="checkbox"]:focus {
+            outline: 0;
+        }
+
+        .instIcon {
+            margin-right: 20px;
+            display: inline-block;
+            border-radius: 50%;
+            padding: 1%;
+            position: relative;
+            top: -35px;
+        }
+
+        .instIcon img {
+            width: 3em;
+            height: 3em;
+        }
+
+        .kick .instIcon {
+            background-image: radial-gradient(circle at center, #00c6fb 0%, #005bea 100%) !important;
+        }
+
+        .snare .instIcon {
+            background-image: radial-gradient(circle at center, #7918F2 0%, #4801FF 48%, #AC32E4 100%) !important;
+        }
+
+        .hihat .instIcon {
+            background-color: #003b64;
+            background-image: radial-gradient(circle at center, #003b64 0%, #fff200 100%) !important;
+        }
+
+        .shaker .instIcon {
+            background-color: #fc5296;
+            background-color: #990000;
+            background-image: radial-gradient(circle at center, #990000 0%, #ff0000 74%) !important;
+        }
     </style>
     <title>Document</title>
 </head>
@@ -123,83 +117,167 @@ background-image: radial-gradient(circle at center, #990000 0%, #ff0000 74%) !im
 <body>
     <div class="drums">
         <div class="kick">
-            <div class="instIcon"><img src="icon/kick.png"></div>
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
+            <!--<div class="instIcon"><img src="icon/kick.png"></div>-->
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
         </div>
-                <div class="snare">
-            <div class="instIcon"><img src="icon/snare-drum.png"></div>
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
+        <div class="snare">
+            <!--<div class="instIcon"><img src="icon/snare-drum.png"></div>-->
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+        </div>
+                        <div class="snare">
+            <!--<div class="instIcon"><img src="icon/snare-drum.png"></div>-->
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
         </div>
         <div class="hihat">
-            <div class="instIcon"><img src="icon/hihat.png"></div>
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
+            <!--<div class="instIcon"><img src="icon/hihat.png"></div>-->
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
         </div>
         <div class="shaker">
-            <div class="instIcon"><img src="icon/shaker.png"></div>
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
+            <!--<div class="instIcon"><img src="icon/shaker.png"></div>-->
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
         </div>
-<!--         <div class="kck">
-        <div class="i"></div>
-        <div class="i"></div>
-        <div class="i"></div>
-        <div class="i"></div>
-        <div class="i"></div>
-        
+                <div class="kick">
+            <!--<div class="instIcon"><img src="icon/kick.png"></div>-->
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+        </div>
+        <div class="shaker">
+            <!--<div class="instIcon"><img src="icon/shaker.png"></div>-->
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+        </div>
+                <div class="snare">
+            <!--<div class="instIcon"><img src="icon/snare-drum.png"></div>-->
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+        </div>
+        <div class="shaker">
+            <!--<div class="instIcon"><img src="icon/shaker.png"></div>-->
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+        </div>
+                <div class="snare">
+            <!--<div class="instIcon"><img src="icon/snare-drum.png"></div>-->
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+        </div>
+        <div class="shaker">
+            <!--<div class="instIcon"><img src="icon/shaker.png"></div>-->
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+        </div>
+                <div class="snare">
+            <!--<div class="instIcon"><img src="icon/snare-drum.png"></div>-->
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+        </div>
+        <div class="shaker">
+            <!--<div class="instIcon"><img src="icon/shaker.png"></div>-->
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+        </div>
+                <div class="snare">
+            <!--<div class="instIcon"><img src="icon/snare-drum.png"></div>-->
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+            <input id="inpt" type="checkbox">
+        </div>
+    </div>
 
-    </div> -->
-    </div> 
-    
     <!-- <button onclick="g()">okokoko</button> -->
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.3.9/Tone.min.js"></script>
     <script src="script.js"></script>
-    <script>
-   
-// function g() {
 
-// synth.triggerAttackRelease('C4', 0.5, 0)
-// synth.triggerAttackRelease('E4', 0.5, 1)
-// synth.triggerAttackRelease('G4', 0.5, 2)
-// synth.triggerAttackRelease('B4', 0.5, 3)
-// }
-
-//         $( ".i" ).mouseover(function() {
-// var synth = new Tone.FMSynth().toMaster()
-  
-//   synth.triggerAttackRelease('C4', 0.5, 0)
-// });
-    </script>
 </body>
 
 </html>

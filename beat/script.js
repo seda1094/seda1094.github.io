@@ -13,16 +13,16 @@ function sequencer() {
   function repeat() {
     let step = index % 8;
     let kickInputs = document.querySelector(
-      `.kick input:nth-child(${step + 2})`
+      `.kick input:nth-child(${step + 1})`
     );
     let snareInputs = document.querySelector(
-      `.snare input:nth-child(${step + 2})`
+      `.snare input:nth-child(${step + 1})`
     );
     let hihatInputs = document.querySelector(
-      `.hihat input:nth-child(${step + 2})`
+      `.hihat input:nth-child(${step + 1})`
     );
     let shakerInputs = document.querySelector(
-      `.shaker input:nth-child(${step + 2})`
+      `.shaker input:nth-child(${step + 1})`
     );
 $('input').css({
    'width' : '10em',
@@ -30,26 +30,22 @@ $('input').css({
 });
 
 
-let kickS = $( `.kick input:nth-child(${step + 2})` );
-kickS.css({
-   'width' : '11em',
-   'height' : '11em'
-});
-let snareS = $( `.snare input:nth-child(${step + 2})` );
-snareS.css({
-   'width' : '11em',
-   'height' : '11em'
-});
-let hihatS = $( `.hihat input:nth-child(${step + 2})` );
-hihatS.css({
-   'width' : '11em',
-   'height' : '11em'
-});
-let shakerS = $( `.shaker input:nth-child(${step + 2})` );
-shakerS.css({
-   'width' : '11em',
-   'height' : '11em'
-});
+// let kickS = $( `.kick input:nth-child(${step + 2})` );
+// kickS.css({
+//    'border' : '4px solid white',
+// });
+// let snareS = $( `.snare input:nth-child(${step + 2})` );
+// snareS.css({
+//    'border' : '4px solid white',
+// });
+// let hihatS = $( `.hihat input:nth-child(${step + 2})` );
+// hihatS.css({
+//    'border' : '4px solid white',
+// });
+// let shakerS = $( `.shaker input:nth-child(${step + 2})` );
+// shakerS.css({
+//    'border' : '4px solid white',
+// });
 
 
     if (kickInputs.checked) {
@@ -71,6 +67,8 @@ shakerS.css({
 
     index++;
   }
+
+
 }
 
 sequencer();
