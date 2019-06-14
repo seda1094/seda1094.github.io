@@ -1,0 +1,169 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		html, body, .main { 
+         width: 100vw;
+         height: 100vh;
+		
+         position: fixed;
+         top:0;
+         left: 0;
+		 font-family: "robot";
+		 font-size: 80px;
+	
+		 
+		 }
+
+		  .main {
+          display:flex;
+          flex-wrap:wrap;
+
+		}
+		.item {
+			box-sizing: border-box;
+			background-color:black;
+			border:1px solid white;
+			width: calc(100%/3);
+            height: calc(100%/3);
+			font-size:150%;
+            display: flex;
+            justify-content: center;
+            align-items: center;   
+			animation: colors 2s infinite;   
+		}
+		img{
+           width: 30%;
+
+
+
+		}
+
+		img:active{
+			width: 37%
+
+
+		}
+
+		.item:active{
+          box-shadow:inset 10px 10px 200px yellowgreen;
+		  font-size: 200%;
+
+		}
+		@font-face{
+			src: url('BinarySoldiers.ttf');
+			font-family: 'robot';
+			
+		}
+		@keyframes colors{
+			0%{
+				
+				color: yellow;
+				text-shadow: 10px 10px 100px yellow;
+			}
+			15%{
+				color: rgb(14, 207, 24);
+				text-shadow: 10px 10px 100px rgb(14, 207, 24);
+			}
+			30%{
+				color: rgb(6, 232, 248);
+				text-shadow: 10px 10px 100px rgb(6, 232, 248);
+			}
+			45%{
+				color: rgb(255, 0, 221);
+				text-shadow: 10px 10px 100px rgb(255, 0, 221) ;
+			}
+			60%{
+				color: rgb(255, 72, 0);
+				text-shadow: 10px 10px 100px rgb(255, 72, 0) ;
+			}
+			75%{
+				color: rgb(4, 0, 255);
+				text-shadow: 10px 10px 100px rgb(4, 0, 255) ;
+			}
+			100%{
+				color: rgb(255, 208, 0);
+				text-shadow: 10px 10px 100px rgb(255, 208, 0);
+			}
+		}
+	</style>
+</head>
+<body>
+<div class="main">
+	<div onclick="play1()" class="item">a</div>  
+	<div onclick="play2()" class="item">s</div>
+	<div onclick="play3()" class="item">d</div>
+	<div onclick="play4()"class="item">r</div>
+	<div onclick="play5()" class="item">e</div>
+	<div onclick="play6()" class="item">w</div>
+	<div onclick="play7()" class="item">t</div>
+	<div onclick="play8()" class="item">y</div>
+	<div onclick="play9()" class="item">h</div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.12/Tone.js"></script>
+<script>
+	const sound1 = new Tone.Player("./sounds/a.wav").toMaster();
+	const sound2 = new Tone.Player("./sounds/b.wav").toMaster();
+	const sound3 = new Tone.Player("./sounds/c.wav").toMaster(); 
+	const sound4 = new Tone.Player("./sounds/d.wav").toMaster();
+	const sound5 = new Tone.Player("./sounds/e.wav").toMaster();
+	const sound6 = new Tone.Player("./sounds/f.wav").toMaster();
+	const sound7 = new Tone.Player("./sounds/g.wav").toMaster();
+	const sound8 = new Tone.Player("./sounds/h.wav").toMaster();
+	const sound9 = new Tone.Player("./sounds/a.wav").toMaster();
+
+function play1(){
+Tone.context.resume().then(() =>  {
+	sound1.start();
+     })
+}
+function play2(){
+Tone.context.resume().then(() =>  {
+	sound2.start();
+     })
+}
+function play3(){
+Tone.context.resume().then(() =>  {
+	sound3.start();
+     })
+}	
+function play4(){
+Tone.context.resume().then(() =>  {
+	sound4.start();
+     })
+}
+function play5(){
+Tone.context.resume().then(() =>  {
+	sound5.start();
+     })
+}
+function play6(){
+Tone.context.resume().then(() =>  {
+	sound6.start();
+     })
+}
+function play7(){
+Tone.context.resume().then(() =>  {
+	sound7.start();
+     })
+}
+function play8(){
+Tone.context.resume().then(() =>  {
+	sound8.start();
+     })
+}
+function play9(){
+Tone.context.resume().then(() =>  {
+	sound9.start();
+     })
+}
+</script>
+</body>
+</html>		
+
+
+
+
+

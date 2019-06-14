@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<style>
+		html,
+		body,
+		.main {
+			width: 100vw;
+			height: 100vh;
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+
+		.main {
+			display: flex;
+			flex-wrap: wrap;
+
+
+		}
+
+		.item {
+			box-sizing: border-box;
+			background-color: black;
+			border: 1px solid white;
+			width: calc(100%/3);
+			height: calc(100%/3);
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		img {
+			width: 25%;
+		}
+
+		img:active {
+			width: 37%
+		}
+
+		.item:active {
+			box-shadow: inset 10px 10px 200px blue
+		}
+	</style>
+</head>
+
+<body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.12/Tone.js"></script>
+	<div class="main">
+		<div class="item" onclick="play1()"><img src="bee.png"></div>
+		<div class="item" onclick="play2()"><img src="cat.png"></div>
+		<div class="item" onclick="play3()"><img src="chicken.png"></div>
+		<div class="item" onclick="play9()"><img src="dog(1).png"></div>
+		<div class="item" onclick="play9()"><img src="dog.png"></div>
+		<div class="item" onclick="play6()"><img src="duckling.png"></div>
+		<div class="item" onclick="play7()"><img src="owl.png"></div>
+		<div class="item" onclick="play8()"><img src="reindeer(1).png"></div>
+		<div class="item" onclick="play5()"><img src="teddy-bear(1).png"></div>
+
+	</div>
+	<script>
+		const sound1 = new Tone.Player("./sounds/a.wav").toMaster();
+		const sound2 = new Tone.Player("./sounds/cat.wav").toMaster();
+		const sound3 = new Tone.Player("./sounds/f.wav").toMaster();
+		const sound4 = new Tone.Player("./sounds/d.wav").toMaster();
+		const sound5 = new Tone.Player("./sounds/e.wav").toMaster();
+		const sound6 = new Tone.Player("./sounds/goose.wav").toMaster();
+		const sound7 = new Tone.Player("./sounds/owl.wav").toMaster();
+		const sound8 = new Tone.Player("./sounds/ring.wav").toMaster();
+		const sound9 = new Tone.Player("./sounds/dogshort.wav").toMaster();
+		function play1() {
+			Tone.context.resume().then(() => {
+				sound1.start();
+			})
+		}
+		function play2() {
+			Tone.context.resume().then(() => {
+				sound2.start();
+			})
+		}
+		function play3() {
+			Tone.context.resume().then(() => {
+				sound3.start();
+			})
+		}
+		function play4() {
+			Tone.context.resume().then(() => {
+				sound4.start();
+			})
+		}
+		function play5() {
+			Tone.context.resume().then(() => {
+				sound5.start();
+			})
+		}
+		function play6() {
+			Tone.context.resume().then(() => {
+				sound6.start();
+			})
+		}
+
+		function play7() {
+			Tone.context.resume().then(() => {
+				sound7.start();
+			})
+		}
+		function play8() {
+			Tone.context.resume().then(() => {
+				sound8.start();
+			})
+		}
+		function play9() {
+			Tone.context.resume().then(() => {
+				sound9.start();
+			})
+		}
+
+	</script>
+</body>
+
+</html>
