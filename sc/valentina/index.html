@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		html, body, .main{
+			width: 100vw;
+			height:100vh;
+			
+		    position: fixed;
+			top: 0;
+			left: 0;
+
+			
+
+		}
+         .main{
+         	display:  flex;
+         	flex-wrap:  wrap;
+         }
+
+         .item{
+         	box-sizing: border-box;
+         	background: yellow;
+         	border:  1px solid green;
+         	width:  calc(100%/3);
+         	height: calc(100%/3);
+         	display: flex;
+         	justify-content: center;
+         	align-items: center;
+
+
+
+         }
+         .item:active{
+         	box-shadow: inset 10px 10px 200px white;
+         }
+
+         img{
+         	width: 25%
+         }
+         img:active{
+         	width: 30%;
+         }
+
+	</style>
+</head>
+<body>
+<div class="main">
+	<div  onclick="play1()" class="item"><img src="automobile.png"></div>
+	<div onclick="play2()" class="item"><img src="basketball.png"></div>
+	<div onclick="play3()" class="item"><img src="cardiogram.png"></div>
+	<div onclick="play4()" class="item"><img src="door.png"></div>
+	<div onclick="play5()" class="item"><img src="maple.png"></div>
+	<div onclick="play6()" class="item"><img src="open-book.png"></div>
+	<div onclick="play7()" class="item"><img src="rain.png"></div>
+	<div onclick="play8()" class="item"><img src="dog.png"></div>
+	<div onclick="play9()" class="item"><img src="rocket.png"></div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.3.9/Tone.min.js"></script>
+<script>
+const sound1=new Tone.Player("./sounds/2.wav").toMaster();
+const sound2=new Tone.Player("./sounds/1.wav").toMaster();
+const sound3=new Tone.Player("./sounds/4.wav").toMaster(); 
+const sound4=new Tone.Player("./sounds/5.wav").toMaster();
+const sound5=new Tone.Player("./sounds/6.wav").toMaster();
+const sound6=new Tone.Player("./sounds/g.wav").toMaster();
+const sound7=new Tone.Player("./sounds/7.wav").toMaster();
+const sound8=new Tone.Player("./sounds/8.wav").toMaster();
+const sound9=new Tone.Player("./sounds/3.wav").toMaster();
+
+
+function play1(){
+Tone.context.resume().then(()=> {
+   sound1.start();
+})
+}
+
+
+function play2(){
+   Tone.context.resume().then(()=>{
+      sound2.start();
+   })
+}
+function play3(){
+Tone.context.resume().then(()=> {
+   sound3.start();
+})
+}
+function play4(){
+   Tone.context.resume().then(()=>{
+      sound4.start();
+   })
+}
+function play5(){
+   Tone.context.resume().then(()=>{
+      sound5.start();
+   })
+}
+function play6(){
+   Tone.contex.resume().then(()=>{
+      sound6.start();
+   })
+}
+function play7(){
+   Tone.context.resume().then(()=>{
+      sound7.start();
+   })
+}
+function play8(){
+   Tone.context.resume().then(()=>{
+      sound8.start();
+   })
+}
+function play9(){
+   Tone.context.resume().then(()=>{
+      sound9.start();
+   })
+}
+
+
+
+
+
+</script>
+</body>
+</html>
