@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		html,body, .main{
+            width: 100vw;
+            height: 100vh;
+            
+            position: fixed;
+            top: 0;
+            left: 0;
+	}
+	.item{
+		box-sizing: border-box;
+		background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+		border: 1px solid white;
+		width: calc(100%/3);
+		height:  calc(100%/3);
+		/*animation: colors 2s infinite;*/
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+		.item:active{
+		background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+	}
+	.main{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	img{
+		width:20%;
+	}
+	img:active{
+		width:30%;
+	}
+
+
+	@keyframes colors{
+		0%{
+			background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+		}
+				30%{
+			background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+		}
+		60%{
+			background-image: linear-gradient(to top, #0fd850 0%, #f9f047 100%);
+		}
+		80%{
+			background-image: linear-gradient(-45deg, #FFC796 0%, #FF6B95 100%);
+		}
+	}
+	</style>
+</head>
+<body>
+<div class="main">
+	<div onclick="play1()" class="item"><img src=""><img src="1.png"></div>
+	<div onclick="play2()" class="item"><img src=""><img src="2.png"></div>
+	<div onclick="play3()" class="item"><img src=""><img src="3.png"></div>
+	<div onclick="play4()" class="item"><img src=""><img src="4.png"></div>
+	<div onclick="play5()" class="item"><img src=""><img src="5.png"></div>
+	<div onclick="play6()" class="item"><img src=""><img src="6.png"></div>
+	<div onclick="play7()" class="item"><img src=""><img src="7.png"></div>
+	<div onclick="play8()" class="item"><img src=""><img src="8.png"></div>
+	<div onclick="play9()" class="item"><img src=""><img src="9.png"></div>
+</div>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.3.9/Tone.min.js"></script>
+<script>
+	const sound1 = new Tone.Player("./sounds/s.mp3").toMaster();
+
+	function play1(){
+        Tone.context.resume().then(() => {
+        sound1.start();
+})
+	}
+
+
+		const sound2 = new Tone.Player("./sounds/b.mp3").toMaster();
+
+	function play2(){
+        Tone.context.resume().then(() => {
+        sound2.start();
+})
+	}
+	const sound3 = new Tone.Player("./sounds/a.mp3").toMaster();
+
+	function play3(){
+        Tone.context.resume().then(() => {
+        sound3.start();
+        })
+    }
+
+    const sound4 = new Tone.Player("./sounds/f.mp3").toMaster();
+
+	function play4(){
+        Tone.context.resume().then(() => {
+        sound4.start();
+        })
+    }
+
+    const sound5 = new Tone.Player("./sounds/c.mp3").toMaster();
+
+	function play5(){
+        Tone.context.resume().then(() => {
+        sound5.start();
+        })
+    }
+
+    const sound6 = new Tone.Player("./sounds/d.mp3").toMaster();
+
+	function play6(){
+        Tone.context.resume().then(() => {
+        sound6.start();
+        })
+    }
+
+    const sound7 = new Tone.Player("./sounds/e.mp3").toMaster();
+
+	function play7(){
+        Tone.context.resume().then(() => {
+        sound7.start();
+        })
+    }
+
+    const sound8 = new Tone.Player("./sounds/m.mp3").toMaster();
+
+	function play8(){
+        Tone.context.resume().then(() => {
+        sound8.start();
+        })
+    }
+
+    const sound9 = new Tone.Player("./sounds/g.mp3").toMaster();
+
+	function play9(){
+        Tone.context.resume().then(() => {
+        sound9.start();
+        })
+    }
+</script>
+</body>
+</html>
