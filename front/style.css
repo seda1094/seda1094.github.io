@@ -1,4 +1,4 @@
-html, body, .main{
+.main{
 	width: 100%;
 	margin: 0;
 	padding: 0;
@@ -7,7 +7,7 @@ html, body, .main{
 	background-size: cover;
 	color: white;
 	height: 100%;
-
+	overflow: hidden;
 	position: fixed;
 	top: 0;
 	left: 0;
