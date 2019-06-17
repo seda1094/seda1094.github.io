@@ -1,0 +1,219 @@
+html, body, .main{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background-image: url(Images/back.jpg);
+	background-attachment: fixed;
+	background-size: cover;
+	color: white;
+	height: 100%;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.main{
+	height: 100%;
+}
+header{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 60px;
+	
+}
+header .search{
+	width: 90%;
+
+}
+header .search input{
+	box-sizing: border-box;
+	height: 110px;
+	width: 100%;
+	font-size: 50px;
+	background: rgba(0,0,0,0.6);
+	padding: 10px 10px 10px 40px;
+	border-radius: 90px;
+	color: white;
+	overflow:hidden; 
+	border: 0px;
+
+}
+input:focus{
+    outline: none;
+}
+header .search button{
+	box-sizing: border-box;
+	position: relative;
+	top: -110px;
+	left: 85%;
+	height: 110px;
+	width: 130px;
+	background: rgba(0,0,0,1);
+	padding: 10px 10px 10px 40px;
+	border-radius: 90px;
+	border: 0px;
+	margin-bottom: -20px;
+
+}
+header .search button img{
+	margin-right: 15px;
+	
+
+}
+content{
+	position: absolute;
+	top: 15%;
+}
+content .heading{
+
+}
+
+
+content .heading h1, content .heading  h4{
+	margin-left: 30px;
+	margin-right: 30px;
+	text-align: right;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+content .heading h1{
+	font-size: 8rem;
+}
+content .heading h4{
+	font-size: 6rem;
+	font-weight: lighter;
+}
+content .heading .firstHr{
+	width: 60%;
+	margin-top: 30px;
+}
+content .heading .secHr{
+	margin-top: 30px;
+	margin-bottom: 60px;
+
+	width: 40%;
+}
+content .text{
+	background:rgba(132, 131, 131,.6);
+	text-align: left;
+	width: 75%;
+	padding: 20px 50px;
+	margin-top: 75px;
+	margin-bottom: 75px;
+}
+
+content .text h5{
+	font-size: 56px;
+	margin: 0;
+	/*margin-top: 30px;*/
+
+}
+
+content .text h6{
+	font-size: 32px;
+	margin: 0;
+	margin-top: 40px;
+	font-style: italic;
+	font-family: JournalCTTItalic;
+}
+content .text p{
+	font-size: 24px;
+	margin: 0;
+	margin-top: 40px;
+	font-style: italic;
+	font-weight: lighter;
+	font-family: JournalCTTItalic;
+
+}
+content .text hr{
+	width: 70%;
+}
+.category{
+	position: absolute;
+	top: 73%;
+	height: 150px;
+	width: 100%;
+	background: rgba(0,0,0,0.7);
+	overflow-x: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
+		display: flex;
+	align-items: center;
+
+}
+.category .catItem{
+	/*display: inline-block;*/
+	background-color: black;
+	font-size: 2rem;
+	padding: 20px 20px;
+	margin-left: 40px;
+	border-radius: 20px;
+}
+
+.category .catItem h3{
+	margin:0;
+}
+
+.demoRecipes{
+	/*margin-top: 30px;*/
+	position: absolute;
+	top: 84%;
+	height: 250px;
+	width: 100%;
+	background: rgba(170,170,170,0.5);
+	overflow-x: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
+	display: flex;
+	align-items: center;
+}
+
+.demoRecipes .catItem{
+	height: 150px;
+	width: 350px;
+	background-color: black;
+	margin-left: 45px;
+	border-radius: 30px;
+	display: flex;
+/* dq*/
+	align-items: center;
+
+	padding-right: 20px;
+
+}
+
+.demoRecipes .catItem .recipeImg{
+	
+}
+.demoRecipes .catItem .recipeImg img{ 
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	margin-right: 30px;
+	margin-left: 30px;
+
+}
+.demoRecipes .catItem .desc{ 
+	width: 250px;
+
+}
+.demoRecipes .catItem .desc h6{ 
+	font-size: 24px;
+	margin: 0;
+
+}
+.demoRecipes .catItem .desc p{ 
+	margin-top: 20px;
+
+}
+
+@font-face{
+	src:url(fonts/JournalCTTRegular.ttf);
+	font-family: JournalCTTRegular;
+}
+@font-face{
+	src:url(fonts/JournalCTTItalic.ttf);
+	font-family: JournalCTTItalic;
+}
