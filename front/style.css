@@ -171,7 +171,7 @@ content .text hr{
 
 .demoRecipes{
 	/*margin-top: 30px;*/
-/*	position: absolute;
+    /*	position: absolute;
 	top: 84%;*/
 	position: relative;
 	top: 7%;
@@ -194,8 +194,8 @@ content .text hr{
 	display: flex;
 /* dq*/
 	align-items: center;
-
 	padding-right: 20px;
+	padding-left: 20px;
 
 }
 
@@ -220,7 +220,7 @@ content .text hr{
 
 }
 .demoRecipes .catItem .desc p{ 
-	margin-top: 20px;
+	/* margin-top: 20px; */
 
 }
 
@@ -286,7 +286,7 @@ content .text hr{
 
 	box-sizing: border-box;
 	height: 90px;
-	width: 120%;
+	width: 80%;
 	font-size: 50px;
 	background: rgba(0,0,0);
 	/*margin: 10px 10px 25px 40px;*/
