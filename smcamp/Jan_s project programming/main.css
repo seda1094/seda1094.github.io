@@ -1,0 +1,87 @@
+body {
+    color:whitesmoke;
+    background: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
+    margin-left: 50px;
+}
+.ogImg, .modedImg{
+    height: 100%;
+    width: 50%;
+    display: inline-block;
+}
+
+.modedImg {
+    border-left: 5px dashed lightgray;
+    margin-left: 20px;
+}
+.imgDiv{
+    width: 60%;
+    height: 100%;
+    padding: 5px;
+    max-height: 700px;
+    display: flex;
+}
+.addDiv{
+    margin-bottom: 50px;
+}
+.lowerBrightness, .upperBrightness{
+width: 100px;
+height: 50px;
+}
+
+.editor{
+    display: flex;                  
+    font-size: 2rem;
+}
+
+.buttonDiv{
+    width: 20%;
+    height: 100%;
+margin:0 50px ;
+border-right: 5px solid lightgray;
+padding-right: 30px;
+
+}
+ .addButton{
+width: 100px;
+height: 50px;
+}
+.addField {
+    height:20px;
+    width: 200px;
+    margin-right: 10px;
+}
+
+h2 {
+margin-top: 0px;
+}
+.buttonDiv{
+    width: 20%;
+    height: 100%;
+}
+.filterbutton {
+    width: 205px;
+    height: 50px;
+    background: white;
+    color:black;
+    text-align: center;
+    margin:auto
+}
+
+.filterbutton:hover,.addButton:hover, .upperBrightness:hover, .lowerBrightness:hover {
+background: darkgrey;
+}
+
+.filterbutton,.addButton, .upperBrightness, .lowerBrightness {
+    font-size: 1.5rem;
+    }
+
+.oi {
+
+    margin-top: 40px;
+}
+
+span {
+
+    color: gold;
+}

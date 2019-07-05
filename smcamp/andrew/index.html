@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PictureStore</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        html, body, .main{
+
+            width:100%;
+            height:100%;
+            margin:0px;
+            padding:0px;
+            overflow: hidden;
+
+        }
+
+        .main{
+            display:flex;
+        }
+        
+        .divItem{
+
+            height:100%;
+            width:calc(100%/3);
+
+        }
+        
+        .original{
+            
+            /* left */
+            background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+            /* display:flex;
+            justify-content:center;
+            align-items:center; */
+            text-align:center;
+
+        }
+
+        .original img{
+        
+        width:80%;
+        box-shadow:8px 8px 8px rgb(22, 19, 63);
+        margin-top:50px;
+        margin-left:50px;
+        margin-right:50px;
+
+        }
+
+        .filteredImageDiv{
+
+            /* center */
+            background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+            text-align:center;
+
+        }
+
+        .settings{
+
+            /* right */
+            box-sizing: border-box;
+            background-image: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);   
+            padding: 40px;
+             }
+
+        label{
+            font-size:24px;
+            font-family:arial;
+            padding:20px;
+            
+        }
+
+        .filters{
+
+            width:30px;
+            height:30px;
+            font-size:20px;
+            padding:0px;
+            color:rgb(0, 0, 0);
+            background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+
+        }
+
+        .effects {
+            box-sizing: border-box;
+            font-size:20px;
+            padding:0px;
+            color:rgb(0, 0, 0);
+            background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+
+        }
+
+        form{
+
+            padding-top: 20px;
+            text-align:center;
+
+        }
+        .filteredImageDiv{
+            padding: 20px;
+        }
+    button{
+        margin: 4px;
+    }
+    </style>
+</head>
+    <body>
+        <div class="main">
+            <div class="original divItem">
+                <img src="https://thehardtimes.net/wp-content/uploads/2018/06/funk2.jpg" alt="">
+                <hr>
+            <h1>How to Get Away with Crypto Scamming</h1>
+            <h4>Presented by Funky Kong</h4>
+            <p>Crypto Currency has been around for a while now. It can be very difficult to know when to
+               buy and sell these valuable coins, but why go through the trouble when you can just steal it?
+               The first thing to realize is that you cannot steal cryptocurrency from just anyone; in this
+               digital era, many younger, tech-savvy people are taking the extra steps to secure their assets.
+               while it's good for them, it's awful for poor hackers like me just trying to make a living. The 
+               ideal victim is someone who has taken minimal steps to secure their crypto. This means someone 
+               who has simply gotten a cryoto wallet and dumped their crypto there in hopes of making a quick
+               buck. This will usually be the same type of person who would legitimately beleive those pop-ups
+               on sketchy download sites. Despite their ignorance, these people may or may not have plenty of
+               cash stored away in an offshore bank account (like me) or in a bitcoin wallet. Here is how to
+               hack them.
+               <br>
+               The first thing you're going to need is a VM like virtualbox or VMware. This will ensure that if
+               your computer is compromised, the only thing you lose is a virtual drive. Just be careful to check
+               that you download your virtual machine from <a href="https://www.virtualbox.org/" target=blank>the verified website.</a>
+               After this, you'll need to install a specialized hacking OS; I would personally recommend <a href="https://www.kali.org/" target=blank>Kali Linux</a>.
+               There are a few steps to setting up a virtual machine, but all of them are readily available on youtube.
+               After downloading Kali Linux-wait is that a knock on the door...? Come in..? AHHH NOT THE FBI YOULL NEVER TAKE ME ALI- [gunshots]
+               Hello. Definitely still Funky Kong here. If you'd like to continue this tutorial, please continue to request further information
+               from <a href = "mailto: NotFBI@gmail.com">NotFBI@gmail.com</a>.
+            </p>
+
+            </div>
+    
+
+        <div class="filteredImageDiv divItem">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="settings divItem">          
+                
+
+   
+                <h4>Filters</h4>
+
+                <label for="">Brightness</label>
+                <button onclick="brightnessUp()" class="filters">+</button>
+                <button onclick="brightnessDown()" class="filters">-</button>
+                <br>
+                <label for="">Sharpness</label>
+                <button onclick="sharpnessUp()" class="filters">+</button>
+                <button onclick="sharpnessDown()" class="filters">-</button>
+                <br>
+
+                <label for="">Saturation</label>
+                <button onclick="saturationUp()" class="filters">+</button>
+                <button onclick="saturationDown()" class="filters">-</button>
+                <br>
+
+                <label for="">Hue</label>
+                <button onclick="hueUp()" class="filters">+</button>
+                <button onclick="hueDown()" class="filters">-</button>
+                <br>
+
+                <label for="">Sepia</label>
+                <button onclick="sepiaUp()" class="filters">+</button>
+                <button onclick="sepiaDown()" class="filters">-</button>
+                <br>
+
+                <h3>Visual Effects</h3>
+                <br>
+                <button onclick="addVintage()" class="effects ">Vintage</button>
+                <br>
+                <button onclick="addLomo()" class="effects">Lomo</button>
+                <br>
+                <button onclick="nostalgia()"class="effects">Nostalgia</button>
+                <br>
+                <button onclick="download()" class="effects">Dowload</button>
+                <br>
+                <button onclick="rmFilters()" class="effects">Remove Filters</button>
+                <br>
+
+        </div>
+</div>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.js"></script>
+<script src="script.js"></script>
+</body>
+
+
+
+</html>
