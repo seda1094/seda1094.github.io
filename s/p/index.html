@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Day 4</title>
+	<style>
+		html,body, .main{
+			width: 100vw;
+			height: 100vh;
+			position: fixed;
+			top:0;
+			left:0;
+			background-image: linear-gradient(to right, #434343 0%, black 100%);
+			 background-image: url("https://thumbs.gfycat.com/WarpedBitesizedBeauceron-small.gif");
+
+		}
+		.row{
+			width:100%;
+			height:calc(100%/3);
+			display:flex;
+		}
+		.col{
+			box-sizing: border-box;
+			height: 100%;
+			width:calc(100%/3);
+			border: 2px solid grey;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		img{
+			width:25%;
+			animation: example 5s infinite;
+		}
+		@keyframes example{
+			0% {
+
+				width:25%;
+				transform: rotate(0deg);
+
+			}
+
+
+			50% {
+				width:45%;
+			}
+
+			100%{
+				transform: rotate(360deg);
+				width:25%;
+			}
+
+		}
+	</style>
+</head>
+<body>
+
+<div class="main">
+	<div class="row">
+		<div class="col" onclick="play1()">	
+			<img src="http://bestanimations.com/Earth&Space/Earth/earth-spinning-rotating-animation-24.gif">
+		</div>
+		<div class="col" onclick="play2()">
+			<img src="https://media.giphy.com/media/JRZwMhzk7WolG/giphy.gif">
+		</div>
+		<div class="col" onclick="play3()">
+			<img src="https://i.gifer.com/WME4.gif">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col" onclick="play4()"><img src="http://bestanimations.com/Earth&Space/Planets/jupiter-planet-animation-10.gif"></div>
+		<div class="col" onclick="play5()"><img src="https://people.rit.edu/~kmr1188/140/project3/assets/media/rotate_cloudvenus.gif"></div>
+		<div class="col" onclick="play6()"><img src="https://i.pinimg.com/originals/6f/8c/da/6f8cda99bb66d88fd6d666fb025a0817.gif"></div>
+	</div>
+	<div class="row">
+		<div class="col" onclick="play7()">
+			<img src="https://www.gifmania.co.uk/Space-Animated-Gifs/Animated-Astronomy/Planet-Neptune/Neptune-85080.gif">
+
+		</div>
+		<div class="col" onclick="play8()">
+			<img src="http://www.centraldatacore.com/wp-content/uploads/PG3-Uranus-500-P-Anim.gif">
+
+		</div>
+		<div class="col" onclick="play9()">
+			<img src="http://cliparts.co/cliparts/6Tp/55X/6Tp55XGRc.gif">
+
+		</div>
+	</div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.3.9/Tone.min.js"></script>
+<script>
+
+const s1 = new Tone.Player("./sounds/earth.mp3").toMaster();
+function play1() {
+	Tone.context.resume().then(()=>{
+		s1.start();
+	})
+}
+
+const s2 = new Tone.Player("./sounds/mars.mp3").toMaster();
+function play2() {
+	Tone.context.resume().then(()=>{
+		s2.start();
+	})
+}
+
+const s3 = new Tone.Player("./sounds/jupiter.mp3").toMaster();
+function play3() {
+	Tone.context.resume().then(()=>{
+		s3.start();
+	})
+}
+
+const s4 = new Tone.Player("./sounds/pluto.mp3").toMaster();
+function play4() {
+	Tone.context.resume().then(()=>{
+		s4.start();
+	})
+}
+
+const s5 = new Tone.Player("./sounds/venus.mp3").toMaster();
+function play5() {
+	Tone.context.resume().then(()=>{
+		s5.start();
+	})
+}
+
+const s6 = new Tone.Player("./sounds/mercury.mp3").toMaster();
+function play6() {
+	Tone.context.resume().then(()=>{
+		s6.start();
+	})
+}
+
+const s7 = new Tone.Player("./sounds/neptune.mp3").toMaster();
+function play7() {
+	Tone.context.resume().then(()=>{
+		s7.start();
+	})
+}
+
+const s8 = new Tone.Player("./sounds/uranus.mp3").toMaster();
+function play8() {
+	Tone.context.resume().then(()=>{
+		s8.start();
+	})
+}
+
+const s9 = new Tone.Player("./sounds/saturn.mp3").toMaster();
+function play9() {
+	Tone.context.resume().then(()=>{
+		s9.start();
+	})
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
