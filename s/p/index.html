@@ -50,6 +50,8 @@
 			}
 
 		}
+
+
 	</style>
 </head>
 <body>
@@ -87,11 +89,20 @@
 	</div>
 
 </div>
+<!-- <audio controls autoplay>
+	<source src="music.mp3" type="audio/mp3">
+  </audio> -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
 crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.3.9/Tone.min.js"></script>
 <script>
-
+const b = new Tone.Player("music.mp3").toMaster();
+function back() {
+	Tone.context.resume().then(()=>{
+		b.start();
+	})
+}
+back()
 const s1 = new Tone.Player("./sounds/earth.mp3").toMaster();
 function play1() {
 	Tone.context.resume().then(()=>{
