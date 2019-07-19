@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.3.9/Tone.min.js"></script>
+	<style type="text/css">
+		html,body,.main{
+			width:100vw;
+			height: 100vh;
+			position: fixed;
+			top:0;
+			left:0;
+		}
+		.row{
+			width:100%;
+			height:calc(100%/3);
+			display: flex;
+		}
+		.col{
+			height: 100%;
+			width:calc(100%/3);
+			border: 0.5px solid black;
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			background-color: lightblue;
+		}
+		.sax{
+			width: 23%
+
+		}
+		.ded{
+			width: 70%;
+		}
+		img{
+			width:50%;
+		}
+	</style>
+	<script>
+
+		console.log(Tone);
+		
+
+		const sound1 = new Tone.Player("./sounds/Darude.mp3").toMaster();
+
+		function play1(){
+			Tone.context.resume().then(()=>{
+				sound1.start();
+			})
+		}
+
+		const sound2 = new Tone.Player('./sounds/Moo.mp3').toMaster();
+
+		function play2() {
+			Tone.context.resume().then(()=>{
+				sound2.start();
+			})
+		}
+		const sound3 = new Tone.Player('./sounds/Deez Nuts.mp3').toMaster();
+
+		function play3() {
+			Tone.context.resume().then(()=>{
+				sound3.start();
+			})
+		}
+		const sound4 = new Tone.Player('./sounds/sound.mp3').toMaster();
+
+		function play4() {
+			Tone.context.resume().then(()=>{
+				sound4.start();
+			})
+		}
+		const sound5 = new Tone.Player('./sounds/JOHN CENA.mp3').toMaster();
+
+		function play5() {
+			Tone.context.resume().then(()=>{
+				sound5.start();
+			})
+		}
+		const sound6 = new Tone.Player('./sounds/Snake.mp3').toMaster();
+
+		function play6() {
+			Tone.context.resume().then(()=>{
+				sound6.start();
+			})
+		}
+		const sound7 = new Tone.Player('./sounds/Epic Sax Guy.mp3').toMaster();
+
+		function play7() {
+			Tone.context.resume().then(()=>{
+				sound7.start();
+			})
+		}
+		const sound8 = new Tone.Player('./sounds/In the air tonght.mp3').toMaster();
+
+		function play8() {
+			Tone.context.resume().then(()=>{
+				sound8.start();
+			})
+		}
+		const sound9 = new Tone.Player('./sounds/TUMO.mp3').toMaster();
+
+		function play9() {
+			Tone.context.resume().then(()=>{
+				sound9.start();
+			})
+		}
+	</script>
+</head>
+<body>
+<div class="main">
+	<div class="row">
+		<div onclick="play1()" class="col"><img src="https://inktank.fi/wp-content/uploads/2017/07/darude-sandstorm.jpg"><p>Darude</p></div>
+		<div onclick="play2()" class="col"><img src="http://pngimg.com/uploads/cow/cow_PNG50617.png"><p>Moo</p></div>
+		<div onclick="play3()" class="col"><img src="https://media.gannett-cdn.com/35546125001/35546125001_5992469755001_4444092232001-vs.jpg"><p>Deez Nuts</p></div>
+	</div>
+	<div class="row">
+		<div onclick="play4()" class="col"><img src="https://i.ytimg.com/vi/G8Iz06nVAJc/hqdefault.jpg"><p>jesus christ</p></div>
+		<div onclick="play5()" class="col"><img src="https://media.giphy.com/media/dkDzY4u7trSiQ/giphy.gif"><p>john cena</p></div>
+		<div onclick="play6()" class="col"><img src="https://i.ytimg.com/vi/CKlM82LJfTI/maxresdefault.jpg"><p>snake hissing</p></div>
+	</div>
+	<div class="row">
+		<div onclick="play7()" class="col"><img class="sax" src="https://i2.wp.com/remysaxophones.com/wp-content/uploads/2016/09/Remy-Saxophone-alto_side.png?fit=1376%2C2812&ssl=1"><p>epic sax guy</p></div>
+		<div onclick="play8()" class="col"><img src="http://www.gretschdrums.com/sites/default/files/styles/portfolio_portrait_full/public/drums/usa-custom-gallery/US-TWGG.png?itok=puiQqJ_C"><p>in the aiir tonight</p></div>
+		<div onclick="play9()" class="col"><img class="ded" src="https://dummyimage.com/1920x1080/000/ff0000&text=Click+and+u+dies!!!!!!!!!"><p>tumo</p></div>
+	</div>
+</div>
+</body>
+
+</html>

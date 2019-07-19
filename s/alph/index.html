@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)file:///Users/user/Desktop/nigga.html -->
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>For presentation</title>
+	<style type="text/css">
+		html,
+		body,
+		.main {
+			width: 100vw;
+			height: 100vh;
+			position: fixed;
+			top: 0;
+			left: 0;
+			font-family: myFont;
+			font-size: 120%;
+		}
+
+		.row {
+			width: 100%;
+			height: calc(100%/5);
+			display: flex;
+
+		}
+
+		.col {
+			box-sizing: border-box;
+			height: 100%;
+			width: calc(100%/8);
+			border: 2px solid black;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+			/* background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); */
+
+		}
+
+		.main .row .col img {
+			width: 45%;
+			margin-left: 10%;
+		}
+
+		@font-face {
+			font-family: myFont;
+			src: url(FMBF-Notr-Regular-9226.ttf);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="main">
+		<div class="row">
+			<div class="col" onclick="play_a()">
+				<h1>Աա</h1>
+				<img src="./For presentation_files/smiling-cartoon-fox-sticker-1542048294.5326474.png">
+			</div>
+			<div class="col" onclick="play_b()">
+				<h1>Բբ</h1>
+				<img src="./For presentation_files/cartoon-eggplant-cliparts-148258-4236429.jpg">
+			</div>
+			<div class="col" onclick="play_g()">
+				<h1>Գգ</h1>
+				<img src="./For presentation_files/827938.png">
+			</div>
+			<div class="col" onclick="play_d()">
+				<h1>Դդ</h1>
+				<img src="./For presentation_files/g9166-512.png">
+			</div>
+			<div class="col" onclick="play_ye()">
+				<h1>Եե</h1>
+				<img src="./For presentation_files/musk-melon-hi.png">
+			</div>
+			<div class="col" onclick="play_z()">
+				<h1>Զզ</h1>
+				<img src="./For presentation_files/ladybug-476344__340.png">
+			</div>
+			<div class="col" onclick="play_e()">
+				<h1>Էէ</h1>
+				<img src="./For presentation_files/donkey-3013513_960_720.png">
+			</div>
+			<div class="col" onclick="play_ea()">
+				<h1>Ըը</h1>
+				<img src="./For presentation_files/5402f1de9f616ff9adcf3ea2b61dfb4a.jpg">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col" onclick="play_ty">
+				<h1>Թթ</h1>
+				<img src="./For presentation_files/kissclipart-graphic-design-clipart-parrot-cartoon-clip-art-4f59a168910176e8.png">
+			</div>
+			<div class="col" onclick="play_zh()">
+				<h1>Ժժ</h1>
+				<img src="./For presentation_files/red-ribbon-hi.png">
+			</div>
+			<div class="col" onclick="play_i()">
+				<h1>Իի</h1>
+				<img src="./For presentation_files/transparent-airplane-cartoon-1.png">
+			</div>
+			<div class="col" onclick="play_l()">
+				<h1>Լլ</h1>
+				<img src="./For presentation_files/21751-7-tomato-vegetable-cartoon.png">
+			</div>
+			<div class="col" onclick="play_kh()">
+				<h1>Խխ</h1>
+				<img src="./For presentation_files/127-1274638_free-png-kebab-png-images-transparent-kebab-clipart.png">
+			</div>
+			<div class="col" onclick="play_ts()">
+				<h1>Ծծ</h1>
+				<img src="./For presentation_files/g16087-512.png">
+			</div>
+			<div class="col" onclick="play_k()">
+				<h1>Կկ</h1>
+				<img src="http://www.freepngclipart.com/download/cow/10545-cow-image-png.png">
+			</div>
+			<div class="col" onclick="play_h()">
+				<h1>Հհ</h1>
+				<img src="data:image/jpeg;base64,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">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col" onclick="play_dz()">
+				<h1>Ձձ</h1>
+				<img src="./For presentation_files/718dfdb62dfd3c6fcd18b9d6f12ca05d-green-fish-cartoon-by-vexels.png">
+			</div>
+
+			<div class="col" onclick="play_x()">
+				<h1>Ղղ</h1>
+				<img src="./For presentation_files/395c58c104dc174cff481ef2c4b9569f.png">
+			</div>
+			<div class="col" onclick="play_tch()">
+				<h1>Ճճ</h1>
+				<img src="https://cdn2.iconfinder.com/data/icons/taxi-cartoon/512/a1889-512.png">
+			</div>
+
+			<div class="col" onclick="play_m()">
+				<h1>Մմ</h1>
+				<img src="http://www.clker.com/cliparts/4/b/3/3/12154415481161002556lemmling_Simple_cartoon_mouse_2.svg.med.png">
+			</div>
+
+			<div class="col" onclick="play_j()">
+				<h1>Յյ</h1>
+				<img src="https://library.kissclipart.com/20180829/xxw/kissclipart-lilacs-transparent-clipart-lilac-flower-84ee963974eaf2c8.png">
+			</div>
+
+			<div class="col" onclick="play_n()">
+				<h1>Նն</h1>
+				<img src="http://clipart-library.com/img1/882501.png">
+			</div>
+
+			<div class="col" onclick="play_sh()">
+				<h1>Շշ</h1>
+				<img src="./For presentation_files/0-4141_displaying-dog-clipart-clipartmonk-free-clip-art-images.png">
+			</div>
+
+			<div class="col" onclick="play_vo()">
+				<h1>Ոո</h1>
+				<img src="./For presentation_files/kissclipart-worm-eisenia-fetida-clip-art-cartoon-portable-netw-28f10fa954fc940b.png">
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col" onclick="play_ch()">
+				<h1>Չչ</h1>
+				<img src="./For presentation_files/sim2564-512.png">
+			</div>
+
+			<div class="col" onclick="play_p()">
+				<h1>Պպ</h1>
+				<img src="./For presentation_files/660b9f099fff3269ede645377bc511bf-ice-cream-cartoon-by-vexels.png">
+			</div>
+
+			<div class="col" onclick="play_dch()">
+				<h1>Ջջ</h1>
+				<img src="https://library.kissclipart.com/20181107/kww/kissclipart-cartoon-double-bass-clipart-double-bass-1e75ac8306686344.png">
+			</div>
+
+			<div class="col" onclick="play_r()">
+				<h1>Ռռ</h1>
+				<img src="./For presentation_files/Flag-map_of_Russia.svg_-1.png">
+			</div>
+
+			<div class="col" onclick="play_s()">
+				<h1>Սս</h1>
+				<img src="./For presentation_files/Ice-Cubes.png">
+			</div>
+
+			<div class="col" onclick="play_v()">
+				<h1>Վվ</h1>
+				<img src="./For presentation_files/sasuke-hair-lol-hi.png">
+			</div>
+
+			<div class="col" onclick="play_t()">
+				<h1>Տտ</h1>
+				<img src="./For presentation_files/d323_3-512.png">
+			</div>
+
+			<div class="col" onclick="play_ry()">
+				<h1>Րր</h1>
+				<img src="./For presentation_files/cropped-round-one-minute-workbench-logo-1.png">
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col" onclick="play_c()">
+				<h1>Ցց</h1>
+				<img src="./For presentation_files/vector-field-wheat-1.png">
+			</div>
+
+			<div class="col" onclick="play_u()">
+				<h1>ՈՒու</h1>
+				<img src="./For presentation_files/g18759-512.png">
+			</div>
+
+			<div class="col" onclick="play_py()">
+				<h1>Փփ</h1>
+				<img src="./For presentation_files/abb0217f430537c60695ad281c738e4b.png">
+			</div>
+
+			<div class="col" onclick="play_q()">
+				<h1>Քք</h1>
+				<img src="./For presentation_files/n757023.png">
+			</div>
+
+			<div class="col" onclick="play_o()">
+				<h1>Օօ</h1>
+				<img src="./For presentation_files/259255_preview.png">
+			</div>
+
+			<div class="col" onclick="play_f()">
+				<h1>Ֆֆ</h1>
+				<img src="./For presentation_files/g1409-512.png">
+			</div>
+
+			<div class="col">
+				<h1></h1>
+			</div>
+
+			<div class="col">
+				<h1></h1>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col">
+				<h1></h1>
+			</div>
+
+			<div class="col">
+				<h1></h1>
+			</div>
+
+			<div class="col">
+				<h1></h1>
+			</div>
+
+			<div class="col">
+				<h1></h1>
+			</div>
+			<div class="col">
+				<h1></h1>
+			</div>
+
+			<div class="col">
+				<h1></h1>
+			</div>
+
+			<div class="col">
+				<h1></h1>
+			</div>
+
+
+
+		</div>
+
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.12/Tone.js"></script>
+
+	<script>
+
+		const a = new Tone.Player("./sounds/a.mp3").toMaster();
+		const b = new Tone.Player("./sounds/b.mp3").toMaster();
+		const g = new Tone.Player("./sounds/g.mp3").toMaster();
+		const d = new Tone.Player("./sounds/d.mp3").toMaster();
+		const ye = new Tone.Player("./sounds/ye.mp3").toMaster();
+		const z = new Tone.Player("./sounds/z.mp3").toMaster();
+		const e = new Tone.Player("./sounds/e.mp3").toMaster();
+		const ea = new Tone.Player("./sounds/ea.mp3").toMaster();
+		const ty = new Tone.Player("./sounds/ty.mp3").toMaster();
+		const zh = new Tone.Player("./sounds/zh.mp3").toMaster();
+		const i = new Tone.Player("./sounds/i.mp3").toMaster();
+		const l = new Tone.Player("./sounds/l.mp3").toMaster();
+		const kh = new Tone.Player("./sounds/kh.mp3").toMaster();
+		const ts = new Tone.Player("./sounds/ts.mp3").toMaster();
+		const k = new Tone.Player("./sounds/k.mp3").toMaster();
+		const h = new Tone.Player("./sounds/h.mp3").toMaster();
+		const dz = new Tone.Player("./sounds/dz.mp3").toMaster();
+		const x = new Tone.Player("./sounds/x.mp3").toMaster();
+		const tch = new Tone.Player("./sounds/tch.mp3").toMaster();
+		const m = new Tone.Player("./sounds/m.mp3").toMaster();
+		const j = new Tone.Player("./sounds/j.mp3").toMaster();
+		const n = new Tone.Player("./sounds/n.mp3").toMaster();
+		const sh = new Tone.Player("./sounds/sh.mp3").toMaster();
+		const vo = new Tone.Player("./sounds/vo.mp3").toMaster();
+		const ch = new Tone.Player("./sounds/ch.mp3").toMaster();
+		const p = new Tone.Player("./sounds/p.mp3").toMaster();
+		const dch = new Tone.Player("./sounds/dch.mp3").toMaster();
+		const r = new Tone.Player("./sounds/r.mp3").toMaster();
+		const s = new Tone.Player("./sounds/s.mp3").toMaster();
+		const v = new Tone.Player("./sounds/v.mp3").toMaster();
+		const t = new Tone.Player("./sounds/t.mp3").toMaster();
+		const ry = new Tone.Player("./sounds/ry.mp3").toMaster();
+		const c = new Tone.Player("./sounds/c.mp3").toMaster();
+		const u = new Tone.Player("./sounds/u.mp3").toMaster();
+		const py = new Tone.Player("./sounds/py.mp3").toMaster();
+		const q = new Tone.Player("./sounds/q.mp3").toMaster();
+		const o = new Tone.Player("./sounds/o.mp3").toMaster();
+		const f = new Tone.Player("./sounds/f.mp3").toMaster();
+
+
+
+
+
+
+		function play_a() {
+			Tone.context.resume().then(() => {
+				a.start();
+			})
+		}
+		function play_b() {
+			Tone.context.resume().then(() => {
+				b.start();
+			})
+		}
+		function play_g() {
+			Tone.context.resume().then(() => {
+				g.start();
+			})
+		}
+		function play_d() {
+			Tone.context.resume().then(() => {
+				d.start();
+			})
+		}
+		function play_ye() {
+			Tone.context.resume().then(() => {
+				ye.start();
+			})
+		}
+		function play_z() {
+			Tone.context.resume().then(() => {
+				z.start();
+			})
+		}
+		function play_e() {
+			Tone.context.resume().then(() => {
+				e.start();
+			})
+		}
+		function play_ea() {
+			Tone.context.resume().then(() => {
+				ea.start();
+			})
+		}
+		function play_ty() {
+			Tone.context.resume().then(() => {
+				ty.start();
+			})
+		}
+		function play_zh() {
+			Tone.context.resume().then(() => {
+			zh.start();
+			})
+		}
+		function play_i() {
+			Tone.context.resume().then(() => {
+				i.start();
+			})
+		}
+		function play_l() {
+			Tone.context.resume().then(() => {
+				l.start();
+			})
+		}
+		function play_kh() {
+			Tone.context.resume().then(() => {
+				kh.start();
+			})
+		}
+		function play_ts() {
+			Tone.context.resume().then(() => {
+			ts.start();
+			})
+		}
+		function play_k() {
+			Tone.context.resume().then(() => {
+				k.start();
+			})
+		}
+		function play_h() {
+			Tone.context.resume().then(() => {
+				h.start();
+			})
+		}
+		function play_dz() {
+			Tone.context.resume().then(() => {
+				dz.start();
+			})
+		}
+		function play_x() {
+			Tone.context.resume().then(() => {
+				x.start();
+			})
+		}
+		function play_tch() {
+			Tone.context.resume().then(() => {
+				tch.start();
+			})
+		}
+		function play_m() {
+			Tone.context.resume().then(() => {
+				m.start();
+			})
+		}
+		function play_j() {
+			Tone.context.resume().then(() => {
+				j.start();
+			})
+		}
+		function play_n() {
+			Tone.context.resume().then(() => {
+				n.start();
+			})
+		}
+		function play_sh() {
+			Tone.context.resume().then(() => {
+				sh.start();
+			})
+		}
+		function play_vo() {
+			Tone.context.resume().then(() => {
+				vo.start();
+			})
+		}
+		function play_ch() {
+			Tone.context.resume().then(() => {
+				ch.start();
+			})
+		}	
+		function play_p() {
+			Tone.context.resume().then(() => {
+				p.start();
+			})
+		}
+		function play_dch() {
+			Tone.context.resume().then(() => {
+				dch.start();
+			})
+		}
+		function play_r() {
+			Tone.context.resume().then(() => {
+				r.start();
+			})	
+		}
+		function play_s() {
+			Tone.context.resume().then(() => {
+				s.start();
+			})
+		}
+		function play_v() {
+			Tone.context.resume().then(() => {
+				v.start();
+			})
+		}
+		function play_t() {
+			Tone.context.resume().then(() => {
+				t.start();
+			})
+		}
+		function play_ry() {
+			Tone.context.resume().then(() => {
+				ry.start();
+			})
+		}
+		function play_c() {
+			Tone.context.resume().then(() => {
+				c.start();
+			})
+		}
+		function play_u() {
+			Tone.context.resume().then(() => {
+				u.start();
+			})
+		}
+		function play_py() {
+			Tone.context.resume().then(() => {
+				py.start();
+			})
+		}
+		function play_q() {
+			Tone.context.resume().then(() => {
+				q.start();
+			})
+		}
+		function play_o() {
+			Tone.context.resume().then(() => {
+				o.start();
+			})
+		}
+		function play_f() {
+			Tone.context.resume().then(() => {
+				f.start();
+			})
+		}
+
+
+
+
+
+	</script>
+</body>
+
+</html>

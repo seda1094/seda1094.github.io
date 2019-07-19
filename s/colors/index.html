@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.12/Tone.js"></script>
+	<style type="text/css">
+    	html,body, .main
+        {width:100vw;
+         height:100vh;
+         position:fixed;
+         top:0;
+         left:0;
+         
+        }
+        .row{
+        	width:100%;
+        	height:calc(100%/4);
+        	display:flex;
+        }
+        .col{
+        	box-sizing: border-box;
+        	height: 100%;
+        	width: calc(100%/4);
+        	/* border: 2px solid black; */
+        	display:flex;
+        	justify-content:center;
+        	align-items: center;
+        }
+        img{
+        	width:45%;
+        }
+        .col1{
+            background: red;
+        }
+        .col2{
+            background: blue;
+        }
+        .col3{
+            background: yellow;
+        }
+        .col4{
+            background: orange;
+        }
+        .col5{
+            background: green;
+        }
+        .col6{
+            background: pink;
+        }
+        .col7{
+            background: purple;
+        }
+        .col8{
+            background: lightblue;
+        }
+        .col9{
+            background: white;
+        }
+        .col10{
+            background: black;
+        }
+        .col11{
+            background: turquoise;
+        }
+        .col12{
+            background: gray;
+        }
+        .col13{
+            background: violet;
+        }
+        .col14{
+            background: darkgreen;
+        }
+        .col15{
+            background: brown;
+        }
+        .col16{
+            background: beige;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="row">
+    	<div class="col col1" onclick="play1()">
+    		<img src="https://66.media.tumblr.com/f8b01aec179c2ab72aeb00e7534017ed/tumblr_o0rooqJbKC1rlaql2o5_500.gif">
+    	</div>
+        <div class="col col2"onclick="play2()">
+        	<img src="http://piona.net/wp-content/uploads/2018/10/tenor.gif">
+        </div>
+        <div class="col col3"onclick="play3()">
+        	<img src="http://piona.net/wp-content/uploads/2018/10/tenor.gif">
+        </div>
+        <div class="col col4"onclick="play4()">
+            <img src="https://66.media.tumblr.com/f8b01aec179c2ab72aeb00e7534017ed/tumblr_o0rooqJbKC1rlaql2o5_500.gif">	
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col5"  onclick="play5()">
+        	<img src="https://media.giphy.com/media/Y7XbLYDiHa8kE/giphy.gif">
+        </div>
+        <div class="col col6"  onclick="play6()">
+        	<img src="https://media1.tenor.com/images/99b3a84d2731dcc99e2815186ad28a44/tenor.gif?itemid=5608028">
+        </div>
+        <div class="col col7"  onclick="play7()">
+        	<img src="https://i.gifer.com/1RP.gif">
+        </div>
+        <div class="col col8"  onclick="play8()">
+        	<img src="https://media.giphy.com/media/Y7XbLYDiHa8kE/giphy.gif">
+        </div>  
+    </div>
+    <div class="row" >
+        <div class="col col9"  onclick="play9()">
+        	<img src="https://media.giphy.com/media/Y7XbLYDiHa8kE/giphy.gif">
+        </div>
+        <div class="col col10"  onclick="play10()">
+        	<img src="https://i.gifer.com/1RP.gif">
+        </div>
+        <div class="col col11"  onclick="play11()">
+        	<img src="https://media1.tenor.com/images/99b3a84d2731dcc99e2815186ad28a44/tenor.gif?itemid=5608028">
+        </div>
+        <div class="col col12"  onclick="play12()">
+        	<img src="https://media.giphy.com/media/Y7XbLYDiHa8kE/giphy.gif">
+        </div>	
+    </div>
+    <div class="row">
+        <div class="col col13"  onclick="play13()">
+        	<img src="https://66.media.tumblr.com/f8b01aec179c2ab72aeb00e7534017ed/tumblr_o0rooqJbKC1rlaql2o5_500.gif">
+        </div>
+        <div class="col col14"  onclick="play14()">
+        	<img src="http://piona.net/wp-content/uploads/2018/10/tenor.gif">
+        </div>
+        <div class="col col15"  onclick="play15()">
+        	<img src="http://piona.net/wp-content/uploads/2018/10/tenor.gif">
+        </div>
+        <div class="col col16"  onclick="play16()">
+        	<img src="https://66.media.tumblr.com/f8b01aec179c2ab72aeb00e7534017ed/tumblr_o0rooqJbKC1rlaql2o5_500.gif">
+        </div>	
+    </div>
+</div>
+
+
+
+
+<script>
+    const red = new Tone.Player("./sounds/red.mp3").toMaster();
+    const blue = new Tone.Player("./sounds/blue.mp3").toMaster();
+    const yellow = new Tone.Player("./sounds/yellow.mp3").toMaster(); 
+    const orange = new Tone.Player("./sounds/orange.mp3").toMaster();
+    const green = new Tone.Player("./sounds/green.mp3").toMaster();
+    const pink = new Tone.Player("./sounds/pink.mp3").toMaster();
+    const purple = new Tone.Player("./sounds/purple.mp3").toMaster();
+    const lightblue = new Tone.Player("./sounds/lightblue.mp3").toMaster();
+    const white = new Tone.Player("./sounds/white.mp3").toMaster();
+    const black = new Tone.Player("./sounds/black.mp3").toMaster();
+    const turquoise = new Tone.Player("./sounds/turquas.mp3").toMaster();
+    const gray = new Tone.Player("./sounds/gray.mp3").toMaster();
+    const violet = new Tone.Player("./sounds/violet.mp3").toMaster();
+    const darkgreen = new Tone.Player("./sounds/dark_green.mp3").toMaster();
+    const brown = new Tone.Player("./sounds/brown.mp3").toMaster();
+    const beige = new Tone.Player("./sounds/beige.mp3").toMaster();
+  
+
+    function play1(){
+    Tone.context.resume().then(() =>  {
+        red.start();
+         })
+    }
+    function play2(){
+    Tone.context.resume().then(() =>  {
+        blue.start();
+         })
+    }
+    function play3(){
+    Tone.context.resume().then(() =>  {
+        yellow.start();
+         })
+    }   
+    function play4(){
+    Tone.context.resume().then(() =>  {
+        orange.start();
+         })
+    }
+    function play5(){
+    Tone.context.resume().then(() =>  {
+        green.start();
+         })
+    }
+    function play6(){
+    Tone.context.resume().then(() =>  {
+        pink.start();
+         })
+    }
+    function play7(){
+    Tone.context.resume().then(() =>  {
+        purple.start();
+         })
+    }
+    function play8(){
+    Tone.context.resume().then(() =>  {
+        lightblue.start();
+         })
+    }
+    function play9(){
+    Tone.context.resume().then(() =>  {
+        white.start();
+         })
+    }
+    function play10(){
+    Tone.context.resume().then(() =>  {
+        black.start();
+         })
+    }
+    function play11(){
+    Tone.context.resume().then(() =>  {
+        turquoise.start();
+         })
+    }
+    function play12(){
+    Tone.context.resume().then(() =>  {
+        gray.start();
+         })
+    }
+    function play13(){
+    Tone.context.resume().then(() =>  {
+        violet.start();
+         })
+    }
+    function play14(){
+    Tone.context.resume().then(() =>  {
+        darkgreen.start();
+         })
+    }
+    function play15(){
+    Tone.context.resume().then(() =>  {
+        brown.start();
+         })
+    }
+    function play16(){
+    Tone.context.resume().then(() =>  {
+        beige.start();
+    })
+    }
+</script>
+
+
+
+
+
+</body>
+</html>
