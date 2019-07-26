@@ -1,0 +1,40 @@
+.ui.card{	
+	display:inline-block;
+	margin: 0 auto;
+}
+
+.ui.form{
+	max-width:70%;
+	margin:0 auto;
+
+}
+h1{
+	color: red;
+    text-align: center;
+}
+h2{
+	color: red;
+	text-align: center;
+}
+
+
+.parent_cart{
+	display: flex;
+	justify-content: center;
+}
+
+.footer{
+	height: 70px;
+	width: 100%;
+	background:black;
+	text-align: center;
+	margin-top: 15px;
+}
+
+.footer span{  
+position: relative;
+top: 15px;
+color: #fff;
+font-size:20px;
+ }
+

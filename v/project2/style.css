@@ -1,0 +1,24 @@
+.ui.card{
+	display: inline-block;
+}
+.ui.card {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+.ui.form{
+	max-width:70%;
+	margin: 0 auto;
+}
+.parent_cart{
+	display: flex;
+	justify-content: center;
+}
+h1{
+	text-align: center;
+	color: blue;
+}
+h2{
+	text-align: center;
+	color:turquoise;
+}

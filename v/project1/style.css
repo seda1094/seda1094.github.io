@@ -1,0 +1,44 @@
+.ui.card{
+	display: inline-block;
+
+}
+
+.ui.form{
+	max-width: 70%;
+	margin: 0 auto;
+
+}
+
+h1 {
+	color: red;
+	text-align: center;
+}
+
+h2{
+	color: aqua;
+	text-align: center;
+}
+.content{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+	margin-top:20px;
+}
+
+.footer{
+	height: 70px;
+	width: 100%;
+	background-color: black;
+	text-align: center;
+	margin-top:15px;
+}	
+.footer span{
+    position:relative;
+    top:15px;
+    color: #fff;
+    font-size: 20px;
+	}
+.ui.slide.reveal > .visible.content {
+    position: relative !important;
+    height: 300px;
+}

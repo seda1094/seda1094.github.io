@@ -1,0 +1,123 @@
+h1,h2,h3,h4{
+	text-align: center;
+	color: pink;
+}
+img{
+  max-width: 100%;
+
+}
+
+.container{
+	
+	width:1170px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.nav
+{
+	list-style-type: none;
+	display: flex;
+}
+
+.nav li
+{ margin-right: 15px;}
+.nav li a{
+	text-decoration: none;
+	color: #000;
+	font-size: 20px;
+	padding: 15px;
+	transition: background-color 1s;
+}
+.nav li a:hover{
+	background-color:lavender;
+	color: pink;
+}
+
+.navbar{
+	background-color: pink;
+	display: flex;
+	justify-content: space-around;
+	align-self: center;
+}
+
+* {box-sizing: border-box}
+.mySlides1, .mySlides2 {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a grey background color */
+.prev:hover, .next:hover {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.products{
+  display: flex;
+}
+.product{
+  max-width: 25%;
+  margin-right: 10px;
+  height: 400px;
+  box-shadow: 0px 0pc 4px 0px #b3b1b1;
+}
+
+.product_text{
+max-height: 200px;
+overflow: hidden;
+padding: 15px;
+text-align: justify;
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+  max-height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.video{
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.footer{
+  background-color: pink;
+  margin: 20px;
+  padding: 20px;
+  font-size: 20px;
+}
+.links{
+  display: flex;
+  justify-content: space-around;
+}
