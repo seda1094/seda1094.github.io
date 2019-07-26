@@ -1,40 +1,44 @@
-.ui.card{	
-	display:inline-block;
+.ui.card{
+	display: inline-block;
+}
+.ui.card{
+	float: left;
+	width: 23.33%;
+	padding: 5px;
+}
+.ui.form{
+	max-width: 70%;
 	margin: 0 auto;
 }
-
-.ui.form{
-	max-width:70%;
-	margin:0 auto;
-
-}
-h1{
-	color: red;
-    text-align: center;
-}
+h1{color:red;
+text-align: center}
 h2{
-	color: red;
+	color: pink;
 	text-align: center;
 }
 
-
-.parent_cart{
+.parent_card{
 	display: flex;
 	justify-content: center;
 }
 
-.footer{
+.map{ 
+
+display: flex;
+justify-content: center;
+
+ }
+ .footer
+{
 	height: 70px;
 	width: 100%;
 	background:black;
 	text-align: center;
 	margin-top: 15px;
 }
-
-.footer span{  
-position: relative;
-top: 15px;
-color: #fff;
-font-size:20px;
- }
-
+.footer span{
+	position: relative;
+	top: 15px;
+	color: #fff;
+	font-size: 20px;
+}
