@@ -175,6 +175,9 @@ color: #132e3a;
 
 
 }
+.chooseImageDiv{
+	overflow: hidden;
+}
 .outlineImagesDiv div img
 {
 	width: 100%;

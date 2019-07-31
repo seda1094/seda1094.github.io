@@ -2,7 +2,7 @@ $('#color').on('change', function () {
   $('#choosen-color').text($(this).val());
   curColor = $(this).val();
   $('.cc').css("fill",curColor)
-});
+});  
 
 function changeColor() {
   document.getElementById("color").click(); 
@@ -190,7 +190,7 @@ function scrollFunc() {
   var elmnt = document.getElementById("scroll");
   xScroll = elmnt.scrollLeft;
   yScroll = elmnt.scrollTop;
-  console.log(xScroll + " + " + yScroll)
+  // console.log(xScroll + " + " + yScroll)
 }
 
 function getXY(e) {
@@ -211,7 +211,7 @@ function getImage() {
 
   // Retrieve the object from storage
   var retrievedObject = localStorage.getItem(name);
-  console.log('retrievedObject: ', JSON.parse(retrievedObject));
+  // console.log('retrievedObject: ', JSON.parse(retrievedObject));
   // Canvas2Image.saveAsPNG(canvas);
   document.getElementById(name).src = JSON.parse(retrievedObject)[name];
 }
@@ -326,12 +326,24 @@ function chooseImage() {
     return;
   }
 }
+
+
+// // Saving image
+// $('#savebtn').on('click', function (e) {
+//   Caman('#main', function () {
+//     this.save("asdasd"+'png');
+//   });
+// });
 // Saving image
 $('#savebtn').on('click', function (e) {
-  Caman('#main', function () {
-    this.save('png');
+  Caman("#main", function () {
+    this.render(function(){
+      var base64 = this.toBase64()
+      download(base64,  Date() + '_image.jpg', 'image/jpeg')
+    })
   });
 });
+
 
 function ckeckImageSizes(iw, ih, cw, ch) {
   if (iw > cw && ih > ch) {
