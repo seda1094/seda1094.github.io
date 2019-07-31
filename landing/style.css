@@ -52,7 +52,7 @@ html, body {
 				width: 0;
 		  }
 		  to {
-				width: 17em;
+				width: 12em;
 		  }
 	}
 }
@@ -516,14 +516,15 @@ h6 {
 	top: -100px;
 }
 .mag {
-	background: rgba(106,107,104,0.81);
-	background: -moz-radial-gradient(center, ellipse cover, rgba(106,107,104,0.81) 0%, rgba(168,168,168,0.72) 100%);
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(106,107,104,0.81)), color-stop(100%, rgba(168,168,168,0.72)));
-	background: -webkit-radial-gradient(center, ellipse cover, rgba(106,107,104,0.81) 0%, rgba(168,168,168,0.72) 100%);
-	background: -o-radial-gradient(center, ellipse cover, rgba(106,107,104,0.81) 0%, rgba(168,168,168,0.72) 100%);
-	background: -ms-radial-gradient(center, ellipse cover, rgba(106,107,104,0.81) 0%, rgba(168,168,168,0.72) 100%);
-	background: radial-gradient(ellipse at center, rgba(106,107,104,0.81) 0%, rgba(168,168,168,0.72) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6a6b68', endColorstr='#a8a8a8', GradientType=1 );
+	background: rgba(77,73,77,0.62);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(77,73,77,0.62) 0%, rgba(59,57,59,0.62) 44%, rgba(36,36,36,1) 100%);
+	/* background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(77,73,77,0.62)), color-stop(44%, rgba(59,57,59,0.62)), color-stop(100%, rgba(36,36,36,1))); */
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(77,73,77,0.62) 0%, rgba(59,57,59,0.62) 44%, rgba(36,36,36,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(77,73,77,0.62) 0%, rgba(59,57,59,0.62) 44%, rgba(36,36,36,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(77,73,77,0.62) 0%, rgba(59,57,59,0.62) 44%, rgba(36,36,36,1) 100%);
+	background: radial-gradient(ellipse at center, rgba(77,73,77,0.62) 0%, rgba(59,57,59,0.62) 44%, rgba(36,36,36,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d494d', endColorstr='#242424', GradientType=1 );
+	background-blend-mode: lighten;
 	background-attachment: fixed;
 	background-size: 100%;
 	border-radius: 50%;
@@ -546,7 +547,7 @@ h6 {
 
 	.mag h1{
 	font-size: 60px;
-	color: rgb(53, 61, 55);
+	color: rgb(128, 127, 127);
 	}
 	
 	.mag:after {
@@ -624,6 +625,11 @@ h6 {
 		  padding-top: 50px;
 		  width: 96%;
 		  margin: 0 auto;
+	}
+
+	.mag{
+		height: 5em;
+		width: 5em;
 	}
 
 }
